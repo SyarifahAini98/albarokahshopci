@@ -48,7 +48,6 @@
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Masuk
                     </button>
-                    <hr>
                   </form>
                   <hr>
                   <div class="text-center">
