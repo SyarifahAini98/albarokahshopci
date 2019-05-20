@@ -11,14 +11,17 @@
               </div>
               <form class="user" method="post" action="<?= base_url('auth/daftar');?>">
                 <div class="form-group">
-                  <input type="text" class="form-control form-control-user" id="nama" placeholder="Nama Lengkap" name="nama">
+                  <input type="text" class="form-control form-control-user" id="nama" placeholder="Nama Lengkap" name="nama" value="<?= set_value('nama');?>">
+                  <?= form_error('nama','<small class="text-danger pl-3">','</small>');?>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="email" placeholder="Email" name="email">
+                  <input type="email" class="form-control form-control-user" id="email" placeholder="Email" name="email" value="<?= set_value('email');?>">
+                  <?= form_error('email','<small class="text-danger pl-3">','</small>');?>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="password" class="form-control form-control-user" id="password1" placeholder="Password" name="password1">
+                    <?= form_error('password1','<small class="text-danger pl-3">','</small>');?>
                   </div>
                   <div class="col-sm-6">
                     <input type="password" class="form-control form-control-user" id="password2" placeholder="Ulangi Password" name="password2">
