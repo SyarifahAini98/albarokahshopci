@@ -9,7 +9,7 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Daftar Pelanggan</h1>
               </div>
-              <form class="user">
+              <form class="user" method="post" action="<?= base_url('auth/daftar');?>">
                 <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="nama" placeholder="Nama Lengkap" name="nama">
                 </div>
