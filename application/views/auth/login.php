@@ -16,10 +16,10 @@
                   </div>
                   <form class="user">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="email" placeholder="Masukkan Email..." name="email">
+                      <input type="text" class="form-control form-control-user" id="email" placeholder="Email" name="email">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="password" placeholder="Masukkan Password..." name="password">
+                      <input type="password" class="form-control form-control-user" id="password" placeholder="Password" name="password">
                     </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Masuk
@@ -30,7 +30,7 @@
                     <a class="small" href="forgot-password.html">Forgot Password?</a>
                   </div>
                   <div class="text-center">
-                    <a class="small" href="register.html">Create an Account!</a>
+                    <a class="small" href="<?= base_url('auth/daftar');?>">Create an Account!</a>
                   </div>
                 </div>
               </div>
