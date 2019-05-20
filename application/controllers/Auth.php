@@ -8,4 +8,11 @@ class Auth extends CI_Controller {
 		$this->load->view('auth/login.php');
 		$this->load->view('templates/auth_footer');
 	}
+
+	public function daftar()
+	{
+		$this->load->view('templates/auth_header');
+		$this->load->view('auth/daftar.php');
+		$this->load->view('templates/auth_footer');
+	}
 }
