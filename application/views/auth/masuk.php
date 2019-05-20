@@ -14,6 +14,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Masuk Pelanggan</h1>
                   </div>
+                  <?= $this->session->flashdata('pesan');?>
                   <form class="user">
                     <div class="form-group">
                       <input type="text" class="form-control form-control-user" id="email" placeholder="Email" name="email">
