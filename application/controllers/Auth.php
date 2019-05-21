@@ -32,16 +32,13 @@ class Auth extends CI_Controller {
 			$this->load->view('templates/auth_footer');
 	}else{
 		$data=[
-			'nama'=>$this->input->post('nama'),
+			'nama_lengkap'=>$this->input->post('nama'),
 			'email'=>$this->input->post('email'),
 			'foto'=>'default_foto_pelanggan.jpg',
-			'password'=>password_hash($this->input->post('password'),PASSWORD_DEFAULT),
-				'role_id'=>2,
-				'is_active'=>1,
-				'date_created'=>time()
+			'password'=>password_hash($this->input->post('password'),PASSWORD_DEFAULT)
 		];
 		$this->db->insert('pelanggan',$data);
-		$this->session->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Selamat! akunmu telah dibuat. Silahkan Masuk</div>');
+		$this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Selamat! akunmu telah dibuat. Silahkan Masuk</div>');
 		redirect('auth');
 	}
 	}
