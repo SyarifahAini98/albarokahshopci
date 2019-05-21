@@ -14,6 +14,18 @@ class Model_Produk extends CI_Model {
 		$query = $this->db->query("SELECT COUNT(*) as total FROM produk");
 		return $query->result();
 	}
+	function get_jumlah_produk_alat_musik(){
+		$query = $this->db->query("SELECT COUNT(*) as total FROM produk WHERE kategori='Alat Musik'");
+		return $query->result();
+	}
+	function get_jumlah_produk_alat_pancing(){
+		$query = $this->db->query("SELECT COUNT(*) as total FROM produk WHERE kategori='Alat Pancing'");
+		return $query->result();
+	}
+	function get_jumlah_produk_alat_olahraga(){
+		$query = $this->db->query("SELECT COUNT(*) as total FROM produk WHERE kategori='Alat Olahraga");
+		return $query->result();
+	}
 
 	function get_produk_populer(){
 		$query = $this->db->query("SELECT * FROM produk ORDER BY terjual DESC LIMIT 1,2");
