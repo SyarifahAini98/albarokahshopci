@@ -33,6 +33,7 @@ class Auth extends CI_Controller {
 	}else{
 		$data=[
 			'nama_lengkap'=>$this->input->post('nama'),
+			'jkel'=>$this->input->post('jkel'),
 			'email'=>$this->input->post('email'),
 			'no_telp'=>$this->input->post('no_telp'),
 			'alamat'=>$this->input->post('alamat'),
