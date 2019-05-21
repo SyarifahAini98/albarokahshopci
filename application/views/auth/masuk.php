@@ -28,10 +28,10 @@
                       Masuk
                     </button>
                   </form>
-                  <hr>
+                  <hr><!-- 
                   <div class="text-center">
                     <a class="small" href="forgot-password.html">Lupa Password?</a>
-                  </div>
+                  </div> -->
                   <div class="text-center">
                     <a class="small" href="<?= base_url('auth/daftar');?>">Buat Akun Baru!</a>
                   </div>
