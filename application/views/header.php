@@ -16,6 +16,37 @@
     <link href="<?= base_url('assets/');?>ItemSlider/css/main-style.css" rel="stylesheet" />
     <!-- custom CSS here -->
     <link href="<?= base_url('assets/');?>css/style.css" rel="stylesheet" />
+    <style type="text/css">
+    .anic {
+      -webkit-animation: fade-in 0.27s linear infinite alternate;
+      -moz-animation: fade-in 0.27s linear infinite alternate;
+      animation: fade-in 0.27s linear infinite alternate;
+    }
+    @-moz-keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      65% {
+        opacity: 1;
+      }
+    }
+    @-webkit-keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      65% {
+        opacity: 1;
+      }
+    }
+    @keyframes fade-in {
+      0% {
+        opacity: 0;
+      }
+      65% {
+        opacity: 1;
+      }
+    }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-default" role="navigation">
@@ -124,30 +155,25 @@
             <!-- /.col -->
             
             <div class="col-md-3 text-center">
+                <?php
+                $no=1;
+                foreach ($data4 as $row):
+                ?>
                 <div class=" col-md-12 col-sm-6 col-xs-6" >
                     <div class="offer-text">
-                        30% off here
+                        <div class="anic">TOP <?php echo $no;?></div>
                     </div>
                     <div class="thumbnail product-box">
-                        <img src="<?= base_url('assets/');?>img/dummyimg.png" alt="" />
+                        <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="" style="height:80px; width:80px;"/>
                         <div class="caption">
-                            <h3><a href="#">Samsung Galaxy </a></h3>
-                            <p><a href="#">Ptional dismiss button </a></p>
+                            <h3><a href="#"><?= $row->nama_produk;?></a></h3>
+                            <p>Harga : <strong>Rp <?= $row->harga_produk;?></strong></p>
+                            <p><a href="#"><?= $row->merek;?></a></p>
                         </div>
                     </div>
                 </div>
-                <div class=" col-md-12 col-sm-6 col-xs-6">
-                    <div class="offer-text2">
-                        30% off here
-                    </div>
-                    <div class="thumbnail product-box">
-                        <img src="<?= base_url('assets/');?>img/dummyimg.png" alt="" />
-                        <div class="caption">
-                            <h3><a href="#">Samsung Galaxy </a></h3>
-                            <p><a href="#">Ptional dismiss button </a></p>
-                        </div>
-                    </div>
-                </div>
+                <?php $no++;
+                endforeach;?>
             </div>
             <!-- /.col -->
         </div>
