@@ -16,12 +16,25 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('username','Username','trim|required');
 		$this->form_validation->set_rules('password','Password','trim|required|valid_email');
 
-		if($this->form_validation->run==false){
+		if($this->form_validation->run()==false){
 			$data['title']='Masuk Pelanggan';
 			$this->load->view('templates/auth_header');
 			$this->load->view('auth/masuk.php');
 			$this->load->view('templates/auth_footer');
+	}else{
+		//validasinya sukses
+		$this->_login();
 	}
+	}
+
+	private function _login(){
+		$nama=$this->input->post('nama');
+		$jkel=$this->input->post('jkel');
+		$email=$this->input->post('email');
+		$no_telp=$this->input->post('no_telp');
+		$alamat=$this->input->post('alamat');
+		$username=$this->input->post('username');
+		$password=$this->input->post('password');
 	}
 
 	public function daftar()
