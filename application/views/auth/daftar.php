@@ -23,6 +23,10 @@
                   <?= form_error('no_telp','<small class="text-danger pl-3">','</small>');?>
                 </div>
                 <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="alamat" placeholder="Alamat" name="alamat" value="<?= set_value('alamat');?>">
+                  <?= form_error('nama','<small class="text-danger pl-3">','</small>');?>
+                </div>
+                <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="username" placeholder="Username" name="username" value="<?= set_value('username');?>">
                   <?= form_error('username','<small class="text-danger pl-3">','</small>');?>
                 </div>
