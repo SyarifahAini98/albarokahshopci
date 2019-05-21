@@ -68,7 +68,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="<?= base_url('auth');?>">Masuk</a></li>
-                    <li><a href="#">Daftar</a></li>
+                    <li><a href="<?= base_url('auth/daftar');?>">Daftar</a></li>
 
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
