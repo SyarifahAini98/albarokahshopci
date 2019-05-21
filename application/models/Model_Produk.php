@@ -10,8 +10,13 @@ class Model_Produk extends CI_Model {
 		return $query->result();
 	}
 
+	function get_jumlah_produk(){
+		$query = $this->db->query("SELECT COUNT(*) as total FROM produk");
+		return $query->result();
+	}
+
 	function get_produk_populer(){
-		$query = $this->db->query("SELECT * FROM produk ORDER BY terjual DESC LIMIT(1,2)");
+		$query = $this->db->query("SELECT * FROM produk ORDER BY terjual DESC LIMIT 1,2");
 		return $query->result();
 	}
 
