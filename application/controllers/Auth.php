@@ -34,6 +34,9 @@ class Auth extends CI_Controller {
 		$data=[
 			'nama_lengkap'=>$this->input->post('nama'),
 			'email'=>$this->input->post('email'),
+			'no_telp'=>$this->input->post('no_telp'),
+			'alamat'=>$this->input->post('alamat'),
+			'username'=>$this->input->post('username'),
 			'foto'=>'default_foto_pelanggan.jpg',
 			'password'=>password_hash($this->input->post('password'),PASSWORD_DEFAULT)
 		];
