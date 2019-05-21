@@ -10,7 +10,12 @@
                 <!-- /.div -->
                 <div class="row">
                     <div class="btn-group alg-right-pad">
-                        <button type="button" class="btn btn-default"><strong>1235  </strong>produk</button>
+                        <?php
+                        foreach ($data as $row):
+                        ?>
+                        <button type="button" class="btn btn-default"><strong><?= $row['total'];?>  </strong>produk</button>
+                        <?php
+                        endforeach;?>
                         <div class="btn-group">
                             <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
                                 Urutkan Produk &nbsp;
@@ -35,8 +40,8 @@
                     foreach ($data as $row):
                     ?>
                     <div class="col-md-4 text-center col-sm-6 col-xs-6">
-                        <div class="thumbnail product-box">
-                            <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="" height="100px" width="100px"/>
+                        <div class="thumbnail product-box" style="height: 300px;">
+                            <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="" style="height:80px; width:80px;"/>
                             <div class="caption">
                                 <h3><a href="#"><?= $row->nama_produk;?></a></h3>
                                 <p>Harga : <strong>Rp <?= $row->harga_produk;?></strong>  </p>
