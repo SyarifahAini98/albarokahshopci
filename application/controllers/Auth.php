@@ -8,10 +8,20 @@ class Auth extends CI_Controller {
 	}
 	public function index()
 	{
-		$data['title']='Masuk Pelanggan';
-		$this->load->view('templates/auth_header');
-		$this->load->view('auth/masuk.php');
-		$this->load->view('templates/auth_footer');
+		$this->form_validation->set_rules('nama','Nama','trim|required');
+		$this->form_validation->set_rules('jkel','Jenis Kelamin','trim|required');
+		$this->form_validation->set_rules('email','Email','trim|required|valid_email');
+		$this->form_validation->set_rules('no_telp','No Telp','trim|required');
+		$this->form_validation->set_rules('alamat','Alamat','trim|required');
+		$this->form_validation->set_rules('username','Username','trim|required');
+		$this->form_validation->set_rules('password','Password','trim|required|valid_email');
+
+		if($this->form_validation->run==false){
+			$data['title']='Masuk Pelanggan';
+			$this->load->view('templates/auth_header');
+			$this->load->view('auth/masuk.php');
+			$this->load->view('templates/auth_footer');
+	}
 	}
 
 	public function daftar()
@@ -35,8 +45,8 @@ class Auth extends CI_Controller {
 			'nama_lengkap'=>htmlspecialchars($this->input->post('nama',true)),
 			'jkel'=>htmlspecialchars($this->input->post('jkel',true)),
 			'email'=>htmlspecialchars($this->input->post('email',true)),
-			'no_telp'=>$this->input->post('no_telp',
-			'alamat'=>htmlspecialchars($this->input->post('alamat',true)),
+			'no_telp'=>$this->input->post('no_telp'),
+			'alamat'=>$this->input->post('alamat'),
 			'username'=>htmlspecialchars($this->input->post('username',true)),
 			'foto'=>'default_foto_pelanggan.jpg',
 			'password'=>password_hash($this->input->post('password'),PASSWORD_DEFAULT)
