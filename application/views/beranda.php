@@ -11,9 +11,9 @@
                 <div class="row">
                     <div class="btn-group alg-right-pad">
                         <?php
-                        foreach ($data as $row):
+                        foreach ($data1 as $row):
                         ?>
-                        <button type="button" class="btn btn-default"><strong><?= $row['total'];?>  </strong>produk</button>
+                        <button type="button" class="btn btn-default"><strong><?= $row->total;?>  </strong>produk</button>
                         <?php
                         endforeach;?>
                         <div class="btn-group">
@@ -37,7 +37,7 @@
                 <div class="row">
                     <?php
                     $no=1;
-                    foreach ($data as $row):
+                    foreach ($data2 as $row):
                     ?>
                     <div class="col-md-4 text-center col-sm-6 col-xs-6">
                         <div class="thumbnail product-box" style="height: 300px;">
