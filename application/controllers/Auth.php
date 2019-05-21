@@ -35,7 +35,7 @@ class Auth extends CI_Controller {
 			'nama'=>$this->input->post('nama'),
 			'email'=>$this->input->post('email'),
 			'foto'=>'default_foto_pelanggan.jpg',
-			'password'=>password_hash($this->input->post('password'),PASSWORD_DEFAULT,
+			'password'=>password_hash($this->input->post('password'),PASSWORD_DEFAULT),
 				'role_id'=>2,
 				'is_active'=>1,
 				'date_created'=>time()
