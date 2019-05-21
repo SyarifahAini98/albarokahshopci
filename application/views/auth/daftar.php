@@ -15,7 +15,7 @@
                   <?= form_error('nama','<small class="text-danger pl-3">','</small>');?>
                 </div>
                 <div class="form-group">
-                  <input type="jkel" class="form-control form-control-user" id="jkel" placeholder="Jenis Kelamin" name="jkel" value="<?= set_value('jkel');?>">
+                  <input type="jkel" class="form-control form-control-user" id="jkel" placeholder="Jenis Kelamin (L/P)" name="jkel" value="<?= set_value('jkel');?>">
                   <?= form_error('jkel','<small class="text-danger pl-3">','</small>');?>
                   <!-- <div class="col-sm-6 mb-3 mb-sm-0">
                     <input type="radio" class="form-control form-control-user" id="jkel" name="jkel" value="L">Laki-Laki
