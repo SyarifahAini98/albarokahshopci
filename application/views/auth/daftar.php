@@ -16,11 +16,11 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="radio" class="form-control form-control-user" id="jkel" name="jkel" value="Laki-Laki">L
+                    <input type="radio" class="form-control form-control-user" id="jkel" name="jkel" value="Laki-Laki">Laki-Laki
                     <?= form_error('jkel','<small class="text-danger pl-3">','</small>');?>
                   </div>
                   <div class="col-sm-6">
-                    <input type="radio" class="form-control form-control-user" id="jkel" name="jkel" value="Perempuan">P
+                    <input type="radio" class="form-control form-control-user" id="jkel" name="jkel" value="Perempuan">Perempuan
                   </div>
                 </div>
                 <div class="form-group">
