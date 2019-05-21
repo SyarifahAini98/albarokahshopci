@@ -35,6 +35,9 @@ class Auth extends CI_Controller {
 		$alamat=$this->input->post('alamat');
 		$username=$this->input->post('username');
 		$password=$this->input->post('password');
+		$user=$this->db->get_where('pelanggan',['email'=>$email])->row_array();
+		var_dump($user);
+		die;
 	}
 
 	public function daftar()
