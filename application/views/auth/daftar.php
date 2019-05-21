@@ -19,8 +19,12 @@
                   <?= form_error('email','<small class="text-danger pl-3">','</small>');?>
                 </div>
                 <div class="form-group">
+                  <input type="text" class="form-control form-control-user" id="no_telp" placeholder="No Telepon" name="no_telp" value="<?= set_value('no_telp');?>">
+                  <?= form_error('no_telp','<small class="text-danger pl-3">','</small>');?>
+                </div>
+                <div class="form-group">
                   <input type="text" class="form-control form-control-user" id="username" placeholder="Username" name="username" value="<?= set_value('username');?>">
-                  <?= form_error('nama','<small class="text-danger pl-3">','</small>');?>
+                  <?= form_error('username','<small class="text-danger pl-3">','</small>');?>
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
