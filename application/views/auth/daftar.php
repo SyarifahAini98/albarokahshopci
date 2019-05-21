@@ -14,9 +14,14 @@
                   <input type="text" class="form-control form-control-user" id="nama" placeholder="Nama Lengkap" name="nama" value="<?= set_value('nama');?>">
                   <?= form_error('nama','<small class="text-danger pl-3">','</small>');?>
                 </div>
-                <div class="form-group">
-                  <input type="radio" class="form-control form-control-user" id="jkel" name="jkel" value="Laki-Laki">
-                  <?= form_error('nama','<small class="text-danger pl-3">','</small>');?>
+                <div class="form-group row">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <input type="radio" class="form-control form-control-user" id="jkel" name="jkel" value="Laki-Laki">Laki-Laki
+                    <?= form_error('jkel','<small class="text-danger pl-3">','</small>');?>
+                  </div>
+                  <div class="col-sm-6">
+                    <input type="radio" class="form-control form-control-user" id="jkel" name="jkel" value="Perempuan">Perempuan
+                  </div>
                 </div>
                 <div class="form-group">
                   <input type="email" class="form-control form-control-user" id="email" placeholder="Email" name="email" value="<?= set_value('email');?>">
