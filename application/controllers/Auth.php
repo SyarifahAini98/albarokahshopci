@@ -32,12 +32,12 @@ class Auth extends CI_Controller {
 			$this->load->view('templates/auth_footer');
 	}else{
 		$data=[
-			'nama_lengkap'=>$this->input->post('nama'),
-			'jkel'=>$this->input->post('jkel'),
-			'email'=>$this->input->post('email'),
-			'no_telp'=>$this->input->post('no_telp'),
-			'alamat'=>$this->input->post('alamat'),
-			'username'=>$this->input->post('username'),
+			'nama_lengkap'=>$this->input->post('nama',true),
+			'jkel'=>$this->input->post('jkel'),true,
+			'email'=>$this->input->post('email'),true,
+			'no_telp'=>$this->input->post('no_telp',true),
+			'alamat'=>$this->input->post('alamat',true),
+			'username'=>$this->input->post('username',true),
 			'foto'=>'default_foto_pelanggan.jpg',
 			'password'=>password_hash($this->input->post('password'),PASSWORD_DEFAULT)
 		];
