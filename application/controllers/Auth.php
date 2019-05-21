@@ -41,7 +41,7 @@ class Auth extends CI_Controller {
 				'date_created'=>time()
 		];
 		$this->db->insert('pelanggan',$data);
-		$this->session->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Selamat! akunmu telah dibuat. Silahkan Masuk</div>')
+		$this->session->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Selamat! akunmu telah dibuat. Silahkan Masuk</div>');
 		redirect('auth');
 	}
 	}
