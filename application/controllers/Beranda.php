@@ -362,7 +362,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('footer');
 	}
 
-	public function detail_produk()
+	public function detail_produk($id)
 	{
 			$data = array(
 				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
@@ -376,7 +376,7 @@ class Beranda extends CI_Controller {
 				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
 			$this->load->view('sidebar_kiri',$data);
 			$data = array(
-				'data'=>$this->Model_Produk->get_detail_produk());
+				'data'=>$this->Model_Produk->get_detail_produk($id));
 			$this->load->view('detail_produk',$data);
 			$this->load->view('footer');
 	}
