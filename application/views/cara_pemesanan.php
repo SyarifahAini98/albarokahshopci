@@ -8,7 +8,9 @@
                     </ol>
                 </div>
                 <!-- /.div -->
-                <img src="<?= base_url('assets/');?>img/cara_pemesanan.jpg" alt="" style="height:280px; width:650px;"/>
+                <br>
+                <center><img src="<?= base_url('assets/');?>img/cara_pemesanan.jpg" alt="" width="645px"/></center>
+                <br><br>
             </div>
             <!-- /.col -->
         </div>
