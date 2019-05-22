@@ -45,16 +45,16 @@ class Model_Produk extends CI_Model {
 		return $query->result();
 	}
 
-	function get_produk_alat_musik(){
-		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Musik' ORDER BY id_produk");
+	function get_produk_harga_terendah_alat_musik(){
+		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Musik' ORDER BY harga_produk DESC");
 		return $query->result();
 	}	    
-	function get_produk_alat_pancing(){
-		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Pancing' ORDER BY id_produk");
+	function get_produk_harga_terendah_alat_pancing(){
+		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Pancing' ORDER BY harga_produk DESC");
 		return $query->result();
 	}	    
-	function get_produk_alat_olahraga(){
-		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Olahraga' ORDER BY id_produk");
+	function get_produk_harga_terendah_alat_olahraga(){
+		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Olahraga' ORDER BY harga_produk DESC");
 		return $query->result();
 	}
 	    
@@ -72,15 +72,15 @@ class Model_Produk extends CI_Model {
 	}
 
 	function get_header_produk_terbaru_alat_musik(){
-		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Musik' ORDER BY id_produk DESC LIMIT 1,4");
+		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Musik' ORDER BY id_produk DESC LIMIT 0,4");
 		return $query->result();
 	}
 	function get_header_produk_terbaru_alat_pancing(){
-		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Pancing' ORDER BY id_produk DESC LIMIT 1,4");
+		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Pancing' ORDER BY id_produk DESC LIMIT 0,4");
 		return $query->result();
 	}   
 	function get_header_produk_terbaru_alat_olahraga(){
-		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Olahraga' ORDER BY id_produk DESC LIMIT 1,4");
+		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Olahraga' ORDER BY id_produk DESC LIMIT 0,4");
 		return $query->result();
 	}
 }
