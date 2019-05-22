@@ -60,7 +60,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('footer');
 	}
 
-public function tentang_kami()
+	public function tentang_kami()
 	{
 			$data = array(
 				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
