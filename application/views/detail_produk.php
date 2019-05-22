@@ -38,8 +38,8 @@
                                 <tr><td>Terjual</td><td>:</td><td><?= $row->terjual;?> produk</td></tr>
                                 <tr><td colspan="3">&nbsp;</td></tr>
                                 <tr><td colspan="3">
-                                    <a href="masuk.php" class="btn btn-danger" role="button" style="background-color: #FBEBED;"><font color="#D0011B">Masukkan Keranjang</font></a>
-                                    <a href="masuk.php" class="btn" role="button" style="background-color: #D0011B;"><font color="white">Beli Sekarang</font></a>
+                                    <a href="<?= base_url('auth');?>" class="btn btn-danger" role="button" style="background-color: #FBEBED;"><font color="#D0011B">Masukkan Keranjang</font></a>
+                                    <a href="<?= base_url('auth');?>" class="btn" role="button" style="background-color: #D0011B;"><font color="white">Beli Sekarang</font></a>
                                     </td>
                                 </tr>
                             </table>
