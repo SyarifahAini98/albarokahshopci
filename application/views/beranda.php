@@ -22,11 +22,11 @@
       <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">Harga Terendah</a></li>
+                                <li><a href="<?= base_url('beranda/harga_terendah');?>">Harga Terendah</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Harga Tertinggi</a></li>
+                                <li><a href="<?= base_url('beranda/harga_tertinggi');?>">Harga Tertinggi</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Populer</a></li>
+                                <li><a href="<?= base_url('beranda/populer');?>">Populer</a></li>
                             </ul>
                         </div>
                     </div>
