@@ -46,7 +46,7 @@
                                 <h3><a href="#"><?= $row->nama_produk;?></a></h3>
                                 <p>Harga : <strong>Rp <?= $row->harga_produk;?></strong>  </p>
                                 <p><a href="#"><?= $row->merek;?></a></p>
-                                <p><a href="#" class="btn btn-success" role="button">Beli</a> <a href="#" class="btn btn-primary" role="button">Lihat</a></p>
+                                <p><a href="<a href="<?= base_url('auth');?>" class="btn btn-success" role="button">Beli</a> <a href="#" class="btn btn-primary" role="button">Lihat</a></p>
                             </div>
                         </div>
                     </div>
