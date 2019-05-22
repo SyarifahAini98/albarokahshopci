@@ -187,6 +187,126 @@ class Beranda extends CI_Controller {
 			$this->load->view('footer');
 	}
 
+	public function harga_tertinggi_alat_musik()
+	{
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('sidebar_kiri',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk(),
+				'data2'=>$this->Model_Produk->get_produk_harga_tertinggi_alat_musik());
+			$this->load->view('kategori_alat_musik',$data);
+			$this->load->view('footer');
+	}
+
+	public function harga_tertinggi_alat_pancing()
+	{
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('sidebar_kiri',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk(),
+				'data2'=>$this->Model_Produk->get_produk_harga_tertinggi_alat_pancing());
+			$this->load->view('kategori_alat_pancing',$data);
+			$this->load->view('footer');
+	}
+
+	public function harga_tertinggi_alat_olahraga()
+	{
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('sidebar_kiri',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk(),
+				'data2'=>$this->Model_Produk->get_produk_harga_tertinggi_alat_olahraga());
+			$this->load->view('kategori_alat_olahraga',$data);
+			$this->load->view('footer');
+	}
+
+	public function populer_alat_musik()
+	{
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('sidebar_kiri',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk(),
+				'data2'=>$this->Model_Produk->get_produk_populer_alat_musik());
+			$this->load->view('kategori_alat_musik',$data);
+			$this->load->view('footer');
+	}
+
+	public function populer_alat_pancing()
+	{
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('sidebar_kiri',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk(),
+				'data2'=>$this->Model_Produk->get_produk_populer_alat_pancing());
+			$this->load->view('kategori_alat_pancing',$data);
+			$this->load->view('footer');
+	}
+
+	public function populer_alat_olahraga()
+	{
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('sidebar_kiri',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk(),
+				'data2'=>$this->Model_Produk->get_produk_populer_alat_olahraga());
+			$this->load->view('kategori_alat_olahraga',$data);
+			$this->load->view('footer');
+	}
+
 	public function populer()
 	{
 			$data = array(
