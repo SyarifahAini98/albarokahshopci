@@ -12,7 +12,6 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('password','Password','trim|required');
 
 		if($this->form_validation->run()==false){
-			$data['title']='Masuk Pelanggan';
 			$this->load->view('templates/auth_header');
 			$this->load->view('auth/masuk.php');
 			$this->load->view('templates/auth_footer');
