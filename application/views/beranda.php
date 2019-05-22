@@ -22,13 +22,11 @@
       <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="#">By Price Low</a></li>
+                                <li><a href="#">Harga Terendah</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">By Price High</a></li>
+                                <li><a href="#">Harga Tertinggi</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">By Popularity</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">By Reviews</a></li>
+                                <li><a href="#">Populer</a></li>
                             </ul>
                         </div>
                     </div>
