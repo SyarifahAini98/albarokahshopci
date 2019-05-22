@@ -70,6 +70,19 @@ class Model_Produk extends CI_Model {
 		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Olahraga' ORDER BY harga_produk");
 		return $query->result();
 	}
+
+	function get_produk_harga_tertinggi_alat_musik(){
+		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Musik' ORDER BY harga_produk DESC");
+		return $query->result();
+	}	    
+	function get_produk_harga_tertinggi_alat_pancing(){
+		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Pancing' ORDER BY harga_produk DESC");
+		return $query->result();
+	}	    
+	function get_produk_harga_tertinggi_alat_olahraga(){
+		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Olahraga' ORDER BY harga_produk DESC");
+		return $query->result();
+	}
 	    
 	function get_produk_terbaru_alat_musik(){
 		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Musik' ORDER BY id_produk DESC");
