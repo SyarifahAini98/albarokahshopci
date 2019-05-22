@@ -377,7 +377,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('sidebar_kiri',$data);
 			$data = array(
 				'data'=>$this->Model_Produk->get_detail_produk());
-			$this->load->view('beranda',$data);
+			$this->load->view('detail_produk',$data);
 			$this->load->view('footer');
 	}
 
