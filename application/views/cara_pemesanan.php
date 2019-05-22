@@ -3,7 +3,7 @@
                 <div>
                     <ol class="breadcrumb">
                     <li><a href="<?= base_url('beranda');?>">Beranda</a></li>
-                        <li><a class="active">Cara Pemesanan</a></li>
+                        <li>Cara Pemesanan</li>
                         <li><a href="<?= base_url('beranda/tentang_kami');?>">Tentang Kami</a></li>
                     </ol>
                 </div>
