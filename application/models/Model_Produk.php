@@ -27,7 +27,7 @@ class Model_Produk extends CI_Model {
 		return $query->result();
 	}
 
-	function get_produk_populer(){
+	function get_produk_header_populer(){
 		$query = $this->db->query("SELECT * FROM produk ORDER BY terjual DESC LIMIT 1,2");
 		return $query->result();
 	}
@@ -53,7 +53,7 @@ class Model_Produk extends CI_Model {
 		$query = $this->db->query("SELECT * FROM produk ORDER BY harga_produk DESC");
 		return $query->result();
 	}
-	function get_produk_populer(){
+	function get_produk_harga_populer(){
 		$query = $this->db->query("SELECT * FROM produk ORDER BY terjual DESC");
 		return $query->result();
 	}
