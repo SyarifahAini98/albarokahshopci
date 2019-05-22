@@ -2,9 +2,9 @@
             <div class="col-md-9">
                 <div>
                     <ol class="breadcrumb">
-                        <li href="#">Beranda</li>
+                    <li><a href="<?= base_url('beranda');?>">Beranda</a></li>
                         <li><a class="active">Cara Pemesanan</a></li>
-                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="<?= base_url('beranda/tentang_kami');?>">Tentang Kami</a></li>
                     </ol>
                 </div>
                 <!-- /.div -->
