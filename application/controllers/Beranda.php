@@ -7,6 +7,7 @@ class Beranda extends CI_Controller {
 		$this->load->helper(array('url'));
 		$this->load->model('Model_Produk');
 	}
+
 	public function index()
 	{
 			$data = array(
@@ -358,6 +359,25 @@ class Beranda extends CI_Controller {
 				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
 			$this->load->view('sidebar_kiri',$data);
 			$this->load->view('tentang_kami');
+			$this->load->view('footer');
+	}
+
+	public function detail_produk()
+	{
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('sidebar_kiri',$data);
+			$data = array(
+				'data'=>$this->Model_Produk->get_detail_produk());
+			$this->load->view('beranda',$data);
 			$this->load->view('footer');
 	}
 
