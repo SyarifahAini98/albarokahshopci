@@ -115,7 +115,7 @@
                             $no=1;
                             foreach ($data1 as $row):
                             ?>
-                            <li><a href="#">
+                            <li><a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
                                 <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="Alat_Musik"><h4><?= $row->nama_produk;?></h4>
                             </a></li>
                             <?php $no++;
@@ -126,7 +126,7 @@
                             $no=1;
                             foreach ($data2 as $row):
                             ?>
-                            <li><a href="#">
+                            <li><a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
                                 <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="Alat_Pancing"><h4><?= $row->nama_produk;?></h4>
                             </a></li>
                             <?php $no++;
@@ -137,7 +137,7 @@
                             $no=1;
                             foreach ($data3 as $row):
                             ?>
-                            <li><a href="#">
+                            <li><a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
                                 <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="Alat_Olahraga"><h4><?= $row->nama_produk;?></h4>
                             </a></li>
                             <?php $no++;
