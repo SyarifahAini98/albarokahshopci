@@ -120,9 +120,6 @@ class Beranda extends CI_Controller {
 			$this->load->view('tentang_kami');
 			$this->load->view('footer');
 	}
-	//buat fungsi cara_pemesanan dan tentang_kami
-	//buat view cara_pemesanan dan tentang_kami
 
-
-
+	
 }
