@@ -87,7 +87,7 @@ class Beranda extends CI_Controller {
 			$this->load->view('footer');
 	}
 	
-	public function harga_terendah_alat_musik()
+	public function harga_terendah()
 	{
 			$data = array(
 				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
@@ -101,8 +101,8 @@ class Beranda extends CI_Controller {
 				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
 			$this->load->view('sidebar_kiri',$data);
 			$data = array(
-				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
-				'data2'=>$this->Model_Produk->get_produk_harga_terendah_alat_musik());
+				'data1'=>$this->Model_Produk->get_jumlah_produk(),
+				'data2'=>$this->Model_Produk->get_produk_harga_terendah());
 			$this->load->view('beranda',$data);
 			$this->load->view('footer');
 	}
