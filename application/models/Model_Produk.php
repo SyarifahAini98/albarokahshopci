@@ -23,7 +23,7 @@ class Model_Produk extends CI_Model {
 		return $query->result();
 	}
 	function get_jumlah_produk_alat_olahraga(){
-		$query = $this->db->query("SELECT COUNT(*) as total FROM produk WHERE kategori='Alat Olahraga");
+		$query = $this->db->query("SELECT COUNT(*) as total FROM produk WHERE kategori='Alat Olahraga'");
 		return $query->result();
 	}
 
