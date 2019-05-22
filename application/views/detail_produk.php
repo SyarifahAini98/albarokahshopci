@@ -20,24 +20,24 @@
                                 <tr><td width="35%" rowspan="11"><!-- 
                                     <div class="thumbnail product-box"> -->
                                         <center>
-                                        <img src="images/images_produk/<?php echo $data["foto"]; ?>" style="height:175px; width:175px;"></center><!-- 
+                                        <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" style="height:175px; width:175px;"></center><!-- 
                                     </div> -->
                                     </td>
-                                    <td colspan="3"><h4><b><?php echo $data["nama_produk"]; ?></b></h4></td></tr>
+                                    <td colspan="3"><h4><b><?= $row->nama_produk;?></b></h4></td></tr>
                                 <tr><td colspan="3">&nbsp;</td></tr>
-                                <tr><td width="15%">Merek</td><td width="4%">:</td><td><?php echo $data["merek"]; ?></td></tr>
+                                <tr><td width="15%">Merek</td><td width="4%">:</td><td><?= $row->merek;?></td></tr>
                                 <tr><td>Ukuran</td><td>:</td><td>
                                 <?php
-                                if($data['ukuran']==''){
+                                if($row->ukuran==''){
                                     echo'-';}
                                 else{
-                                    echo $data['ukuran'];
+                                    echo $row->ukuran;
                                 }; ?></td></tr>
-                                <tr><td>Harga</td><td>:</td><td><strong><font color="orange">Rp <?php echo $data["harga_produk"]; ?>,00</font></strong></td></tr>
-                                <tr><td>Harga Satuan</td><td>:</td><td><?php echo $data["berat"]; ?> gr</td></tr>
-                                <tr><td>Stok</td><td>:</td><td><?php echo $data["stok_produk"]; ?> produk</td></tr>
-                                <tr><td>Kategori</td><td>:</td><td><?php echo $data["kategori"]; ?></td></tr>
-                                <tr><td>Terjual</td><td>:</td><td><?php echo $data["terjual"]; ?> produk</td></tr>
+                                <tr><td>Harga</td><td>:</td><td><strong><font color="orange">Rp <?= $row->harga_produk;?>,00</font></strong></td></tr>
+                                <tr><td>Harga Satuan</td><td>:</td><td><?= $row->berat;?> gr</td></tr>
+                                <tr><td>Stok</td><td>:</td><td><?= $row->stok_produk;?> produk</td></tr>
+                                <tr><td>Kategori</td><td>:</td><td><?= $row->kategori;?></td></tr>
+                                <tr><td>Terjual</td><td>:</td><td><?= $row->terjual;?> produk</td></tr>
                                 <tr><td colspan="3">&nbsp;</td></tr>
                                 <tr><td colspan="3">
                                     <a href="masuk.php" class="btn btn-danger" role="button" style="background-color: #FBEBED;"><font color="#D0011B">Masukkan Keranjang</font></a>
