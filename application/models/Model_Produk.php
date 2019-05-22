@@ -48,7 +48,16 @@ class Model_Produk extends CI_Model {
 	function get_produk_harga_terendah(){
 		$query = $this->db->query("SELECT * FROM produk ORDER BY harga_produk");
 		return $query->result();
-	}	
+	}
+	function get_produk_harga_tertinggi(){
+		$query = $this->db->query("SELECT * FROM produk ORDER BY harga_produk DESC");
+		return $query->result();
+	}
+	function get_produk_populer(){
+		$query = $this->db->query("SELECT * FROM produk ORDER BY terjual DESC");
+		return $query->result();
+	}
+
 	function get_produk_harga_terendah_alat_musik(){
 		$query = $this->db->query("SELECT * FROM produk WHERE kategori='Alat Musik' ORDER BY harga_produk");
 		return $query->result();
