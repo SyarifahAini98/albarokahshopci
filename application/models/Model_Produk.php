@@ -9,6 +9,11 @@ class Model_Produk extends CI_Model {
 		$query = $this->db->query("SELECT * FROM produk");
 		return $query->result();
 	}
+    
+	function get_detail_produk($id){
+		$query = $this->db->query("SELECT * FROM produk WHERE id_produk='$id'");
+		return $query->result();
+	}
 
 	function get_jumlah_produk(){
 		$query = $this->db->query("SELECT COUNT(*) as total FROM produk");
