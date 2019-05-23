@@ -2,7 +2,7 @@
             <div class="col-md-9">
                 <div>
                     <ol class="breadcrumb">
-                        <li>Beranda</li>
+                        <li><a href="<?= base_url('beranda');?>">Beranda</a></li>
                         <li><a href="<?= base_url('beranda/cara_pemesanan');?>">Cara Pemesanan</a></li>
                         <li><a href="<?= base_url('beranda/tentang_kami');?>">Tentang Kami</a></li>
                     </ol>
@@ -22,11 +22,11 @@
       <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="<?= base_url('beranda/harga_terendah');?>">Harga Terendah</a></li>
+                                <li><a href="<?= base_url('beranda/harga_terendah_alat_olahraga');?>">Harga Terendah</a></li>
                                 <li class="divider"></li>
-                                <li><a href="<?= base_url('beranda/harga_tertinggi');?>">Harga Tertinggi</a></li>
+                                <li><a href="<?= base_url('beranda/harga_tertinggi_alat_olahraga');?>">Harga Tertinggi</a></li>
                                 <li class="divider"></li>
-                                <li><a href="<?= base_url('beranda/populer');?>">Populer</a></li>
+                                <li><a href="<?= base_url('beranda/populer_alat_olahraga');?>">Populer</a></li>
                             </ul>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                                 <h3><a href="#"><?= $row->nama_produk;?></a></h3>
                                 <p>Harga : <strong>Rp <?= $row->harga_produk;?></strong>  </p>
                                 <p><a href="#"><?= $row->merek;?></a></p>
-                                <p><a href="<?= base_url('auth');?>" class="btn btn-success" role="button">Beli</a> <a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>" class="btn btn-primary" role="button">Lihat</a></p>
+                                <p><a href="<?= base_url('auth');?>" class="btn btn-success" role="button">Beli</a> <a href="#" class="btn btn-primary" role="button">Lihat</a></p>
                             </div>
                         </div>
                     </div>

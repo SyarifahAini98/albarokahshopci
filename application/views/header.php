@@ -16,6 +16,7 @@
     <link href="<?= base_url('assets/');?>ItemSlider/css/main-style.css" rel="stylesheet" />
     <!-- custom CSS here -->
     <link href="<?= base_url('assets/');?>css/style.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="<?= base_url('assets/img/');?>icon.ico">
     <style type="text/css">
     .anic {
       -webkit-animation: fade-in 0.27s linear infinite alternate;
@@ -114,7 +115,7 @@
                             $no=1;
                             foreach ($data1 as $row):
                             ?>
-                            <li><a href="#">
+                            <li><a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
                                 <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="Alat_Musik"><h4><?= $row->nama_produk;?></h4>
                             </a></li>
                             <?php $no++;
@@ -125,7 +126,7 @@
                             $no=1;
                             foreach ($data2 as $row):
                             ?>
-                            <li><a href="#">
+                            <li><a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
                                 <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="Alat_Pancing"><h4><?= $row->nama_produk;?></h4>
                             </a></li>
                             <?php $no++;
@@ -136,7 +137,7 @@
                             $no=1;
                             foreach ($data3 as $row):
                             ?>
-                            <li><a href="#">
+                            <li><a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
                                 <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="Alat_Olahraga"><h4><?= $row->nama_produk;?></h4>
                             </a></li>
                             <?php $no++;

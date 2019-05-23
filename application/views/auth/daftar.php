@@ -56,6 +56,7 @@
               </form>
               <hr>
               <div class="text-center">
+                <a href="javascript: history.go(-1)"><button type="button" class="btn btn-default">Kembali</button></a>
                 <a class="small" href="<?= base_url('auth');?>">Sudah Punya Akun? Masuk!</a>
               </div>
             </div>
