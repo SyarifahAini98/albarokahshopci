@@ -8,37 +8,4 @@ class Model_pelanggan extends CI_model{
         $query = $this->db->query("SELECT * FROM pelanggan");
         return $query->result();
     }
-    function get_nama_lengkap(){
-    $query = $this->db->query("SELECT * FROM pelanggan");
-        return $query->result();
-    }
-    function get_username(){
-        $query = $this->db->query("SELECT * FROM pelanggan");
-            return $query->result();
-    }
-    function get_password(){
-        $query = $this->db->query("SELECT * FROM pelanggan");
-            return $query->result();
-    }
-    function get_email(){
-        $query = $this->db->query("SELECT * FROM pelanggan");
-            return $query->result();
-    }
-    function get_jkel(){
-        $query = $this->db->query("SELECT * FROM pelanggan");
-            return $query->result();
-    }
-    function get_alamat(){
-        $query = $this->db->query("SELECT * FROM pelanggan");
-            return $query->result();
-    }
-    
-    function get_foto(){
-        $query = $this->db->query("SELECT * FROM pelanggan");
-            return $query->result();
-    }
-    function get_no_telp(){
-        $query = $this->db->query("SELECT * FROM pelanggan");
-            return $query->result();
-    }
 }
