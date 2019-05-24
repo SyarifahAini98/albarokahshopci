@@ -5,7 +5,6 @@
                         <li>Beranda</li>
                         <li><a href="<?= base_url('beranda/cara_pemesanan');?>">Cara Pemesanan</a></li>
                         <li><a href="<?= base_url('beranda/tentang_kami');?>">Tentang Kami</a></li>
-                        <li><a href="<?= base_url('beranda/profil_pelanggan');?>">Profil Pelanggan</a></li>
                     </ol>
                 </div>
                 <!-- /.div -->
