@@ -2,9 +2,9 @@
                 <div>
                     <ol class="breadcrumb">
                      <li><a href="<?= base_url('beranda');?>">Beranda</a></li>
-                        <li><a href="<?= base_url('beranda/cara_pemesanan');?>">Cara Pemesanan</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/cara_pemesanan');?>">Cara Pemesanan</a></li>
                         <li>Profil_Pelanggan</li>
-                        <li><a href="<?= base_url('beranda/tentang_kami');?>">Tentang Kami</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/tentang_kami');?>">Tentang Kami</a></li>
                     </ol>
                 </div>
                 <!-- /.div -->
@@ -28,11 +28,13 @@
                                 <tr><td>Alamat</td><td>:</td><td><?= $row->alamat;?></td></tr>
                                 <tr><td colspan="3">&nbsp;</td></tr>
                                 <tr><td colspan="3"></tr>
-                                
+                               
                                     </td>
                                 </tr>
                             </table>
                             </center>
+                         <center>   <a href="<?= base_url('edit_profil');?>" class="btn btn-danger" role="button" style="background-color: #FBEBED;"><font color="#D0011B">Edit Profil</font></a>
+            </center>
             </div>
             <!-- /.col -->
         </div>
