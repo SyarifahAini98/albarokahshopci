@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Beranda_pelanggan extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
+		$this->load->helper(array('url'));
+		$this->load->model('Model_Produk');
+		$this->load->model('Model_pelanggan');
 	}
 	public function index(){
 		$data['user']=$this->db->get_where('pelanggan',['email'=>$this->session->userdata('email')])->row_array();
