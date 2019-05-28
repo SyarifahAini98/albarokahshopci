@@ -31,7 +31,7 @@ class Auth extends CI_Controller {
 					'email'=>$user['email'],
 				];
 				$this->session->set_userdata($data);
-				redirect('beranda_pelanggan');
+				redirect('Beranda_pelanggan');
 			}else{
 				$this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">Password Salah!</div>');
 				redirect('auth');
@@ -80,4 +80,24 @@ class Auth extends CI_Controller {
 		$this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Anda sudah keluar!</div>');
 		redirect('auth');
 	}
+	public function masuk()
+	{
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('sidebar_kiri',$data);
+			$data = array(
+				'data'=>$this->Model_Produk->get_detail_produk($id));
+			$this->load->view('beranda',$data);
+			$this->load->view('footer');
+
+	}
+
 }
