@@ -14,23 +14,28 @@ class Beranda_pelanggan extends CI_Controller {
 	
 	public function index()
 	{
-		$data = array(
-			'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
-			'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
-			'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
-			'data4'=>$this->Model_Produk->get_produk_header_populer());
-		$this->load->view('user/header',$data);
-		$data = array(
-			'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
-			'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
-			'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
-		$this->load->view('user/sidebar_kiri',$data);
-		$data = array(
-			'data1'=>$this->Model_Produk->get_jumlah_produk(),
-			'data2'=>$this->Model_Produk->get_produk());
-		$this->load->view('user/setelah_login',$data);
-		$this->load->view('user/footer');
-
+		if($this->Model_pelanggan->cek_session())
+        {
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('user/header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('user/sidebar_kiri',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk(),
+				'data2'=>$this->Model_Produk->get_produk());
+			$this->load->view('user/setelah_login',$data);
+			$this->load->view('user/footer');
+		}else{
+			//jika session belum terdaftar, maka redirect ke halaman login
+            redirect("auth");
+        }
 	}
 	public function kategori_alat_musik()
 	{
@@ -332,40 +337,6 @@ class Beranda_pelanggan extends CI_Controller {
 			$this->load->view('user/footer');
 	}
 
-	public function cara_pemesanan()
-	{
-			$data = array(
-				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
-				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
-				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
-				'data4'=>$this->Model_Produk->get_produk_header_populer());
-			$this->load->view('user/header',$data);
-			$data = array(
-				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
-				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
-				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
-			$this->load->view('user/sidebar_kiri',$data);
-			$this->load->view('user/cara_pemesanan');
-			$this->load->view('user/footer');
-	}
-
-	public function tentang_kami()
-	{
-			$data = array(
-				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
-				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
-				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
-				'data4'=>$this->Model_Produk->get_produk_header_populer());
-			$this->load->view('user/header',$data);
-			$data = array(
-				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
-				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
-				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
-			$this->load->view('user/sidebar_kiri',$data);
-			$this->load->view('user/tentang_kami');
-			$this->load->view('user/footer');
-	}
-
 	public function detail_produk($id)
 	{
 			$data = array(
@@ -387,6 +358,8 @@ class Beranda_pelanggan extends CI_Controller {
 
 	public function profil_pelanggan()
 	{
+		if($this->Model_pelanggan->cek_session())
+        {
 			$data = array(
 				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
 				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
@@ -402,18 +375,21 @@ class Beranda_pelanggan extends CI_Controller {
 				'data'=>$this->Model_pelanggan-> get_profil_pelanggan());
 			$this->load->view('user/profil_pelanggan',$data);
 			$this->load->view('user/footer');
+			}else{
+			//jika session belum terdaftar, maka redirect ke halaman login
+            redirect("auth");
+        }
 	}
 	public function edit_profil($id)
 	{
-		
+		if($this->Model_pelanggan->cek_session())
+        {
 		$where = array('id_pelanggan' => $id);
 		$data['pelanggan'] = $this->model_edit_profil->edit_data($where,'pelanggan')->result();
 		$this->load->user('user/edit_profil',$data);
-	}
-
-	public function logout(){
-		$this->session->unset_userdata('email');
-		$this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Anda sudah keluar!</div>');
-		redirect('auth');
-	}
+		}else{
+			//jika session belum terdaftar, maka redirect ke halaman login
+            redirect("auth");
+        }
+    }
 }
