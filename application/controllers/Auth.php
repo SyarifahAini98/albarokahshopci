@@ -5,6 +5,8 @@ class Auth extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('form_validation');
+		$this->load->library('session');
+		$this->load->model('Model_pelanggan');
 	}
 	public function index()
 	{
@@ -28,7 +30,15 @@ class Auth extends CI_Controller {
 		if($user){
 			if(password_verify($password,$user['password'])){
 				$data=[
+					'id_pelanggan'=>$user['id_pelanggan'],
+					'username'=>$user['username'],
+					'password'=>$user['password'],
 					'email'=>$user['email'],
+					'nama_lengkap'=>$user['nama_lengkap'],
+					'jkel'=>$user['jkel'],
+					'foto'=>$user['foto'],
+					'no_telp'=>$user['no_telp'],
+					'alamat'=>$user['alamat'],
 				];
 				$this->session->set_userdata($data);
 				redirect('Beranda_pelanggan');
@@ -76,9 +86,9 @@ class Auth extends CI_Controller {
 	}
 
 	public function logout(){
-		$this->session->unset_userdata('email');
+		$this->Model_pelanggan->hapus_session();
 		$this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Anda sudah keluar!</div>');
-		redirect('auth');
+		redirect('beranda');
 	}
 	public function masuk()
 	{
