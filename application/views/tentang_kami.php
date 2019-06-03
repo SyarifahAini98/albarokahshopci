@@ -25,4 +25,7 @@
                         </div> 
             </div>
             <!-- /.col -->
-        
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
