@@ -8,4 +8,13 @@ class Model_pelanggan extends CI_model{
         $query = $this->db->query("SELECT * FROM pelanggan WHERE id_pelanggan='5'");
         return $query->result();
     }
+
+    function cek_session()
+    {
+        return $this->session->userdata('id_pelanggan');
+    }
+
+    function hapus_session(){
+        $this->session->sess_destroy();
+    } 
 }
