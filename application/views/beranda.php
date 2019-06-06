@@ -41,9 +41,9 @@
                         <div class="thumbnail product-box" style="height: 300px;">
                             <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="" style="height:80px; width:80px;"/>
                             <div class="caption">
-                                <h3><a href="#"><?= $row->nama_produk;?></a></h3>
+                                <h3><?= $row->nama_produk;?></h3>
                                 <p>Harga : <strong><font color="orange">Rp <?= $row->harga_produk;?></font></strong>  </p>
-                                <p><a href="#"><?= $row->merek;?></a></p>
+                                <p><font color="DodgerBlue"><?= $row->merek;?></font></p>
                                 <p><a href="<?= base_url('auth');?>" class="btn btn-success" role="button">Beli</a> <a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>" class="btn btn-primary" role="button">Lihat</a></p>
                             </div>
                         </div>
