@@ -392,38 +392,58 @@ class Beranda_pelanggan extends CI_Controller {
             redirect("auth");
         }
     }
+
+	public function keranjang()
+	{
+		if($this->Model_pelanggan->cek_session())
+        {
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('user/header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('user/sidebar_kiri',$data);
+			$data = array(
+				'data'=>$this->Model_pelanggan-> get_profil_pelanggan());
+			$this->load->view('user/keranjang',$data);
+			$this->load->view('user/footer');
+			}else{
+			//jika session belum terdaftar, maka redirect ke halaman login
+            redirect("auth");
+        }
+	}
+
     public function fungsi_keranjang($aksi,$id_produk)
     {
-    if ($aksi1!='' && $id_produk1!='') {
-        $aksi = $aksi1;
-        $ref = $_GET['ref'];
+    if ($aksi!='' && $id_produk!='') {
              
         if ($aksi == "add") {
-            if ($id_produk1) {
-                $id_produk = $id_produk1;
-                if (isset($_SESSION['items'][$id_produk])) {
+            if ($id_produk) {
+                if ($_SESSION['items'][$id_produk]) {
                     $_SESSION['items'][$id_produk] += 1;
                 } else {
-    1                $_SESSION['items'][$id_produk] = 1; 
+                    $_SESSION['items'][$id_produk] = 1; 
                 }
             }
         } elseif ($aksi == "plus") {
-            if ($id_produk1) {
-                $id_produk = $id_produk1;
-                if (isset($_SESS1ION['items'][$id_produk])) {
+            if ($id_produk) {
+                if (isset($_SESSION['items'][$id_produk])) {
                     $_SESSION['items'][$id_produk] += 1;
                 }
             }
         } elseif ($aksi == "min") {
-            if ($id_produk1) {
-                $id_produk = $id_produk1;
-                if (isset($_SESS1ION['items'][$id_produk])) {
+            if ($id_produk) {
+                if (isset($_SESSION['items'][$id_produk])) {
                     $_SESSION['items'][$id_produk] -= 1;
                 }
             }
         } elseif ($aksi == "del") {
-            if ($id_produk1) {
-                $id_produk = $id_produk1;
+            if ($id_produk) {
                 if (isset($_SESSION['items'][$id_produk])) {
                     unset($_SESSION['items'][$id_produk]);
                 }
