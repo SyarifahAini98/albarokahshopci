@@ -164,7 +164,7 @@
                     <div class="offer-text">
                         <div class="anic">TOP <?php echo $no;?></div>
                     </div>
-                    <a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
+                    <a href="<?= base_url('beranda_pelanggan/detail_produk/'.$row->id_produk);?>">
                     <div class="thumbnail product-box">
                         <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="" style="height:80px; width:80px;"/>
                         <div class="caption">
