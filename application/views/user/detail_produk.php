@@ -2,8 +2,10 @@
             <div class="col-md-9">
                 <div>
                     <ol class="breadcrumb">
-                        <li><a href="<?= base_url('beranda');?>">Beranda</a></li>
-                        <li><a href="<?= base_url('beranda/tentang_kami');?>">Tentang Kami</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan');?>">Beranda</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/profil_pelanggan');?>">Profil</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/keranjang');?>">Keranjang</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/transaksi');?>">Transaksi</a></li>
                     </ol>
                 </div>
                 <!-- /.div -->
@@ -13,7 +15,8 @@
                     foreach ($data as $row):
                     ?>
                     <div class="col-md-12 text-center col-sm-6 col-xs-6">
-                        <div class="thumbnail product-box" style="height: 300px;">
+                        <!-- <div class="thumbnail product-box" style="height: 300px;"> -->
+                        <a href="javascript: history.go(-1)" class="btn btn-default" role="button" style="float:left;">Kembali</a>
                             <center>
                             <table border="0" width="100%" style="padding: 5px;border-spacing:5px;border-collapse: separate;">
                                 <tr><td width="35%" rowspan="10"><!-- 
@@ -43,7 +46,7 @@
                                 </tr>
                             </table>
                             </center>
-                        </div>
+                        <!-- </div> -->
                     </div>
                     <?php $no++;
                     endforeach;?>
