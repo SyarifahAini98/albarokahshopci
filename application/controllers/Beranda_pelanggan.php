@@ -392,4 +392,52 @@ class Beranda_pelanggan extends CI_Controller {
             redirect("auth");
         }
     }
+    public function fungsi_keranjang($aksi,$id_produk)
+    {
+    if ($aksi1!='' && $id_produk1!='') {
+        $aksi = $aksi1;
+        $ref = $_GET['ref'];
+             
+        if ($aksi == "add") {
+            if ($id_produk1) {
+                $id_produk = $id_produk1;
+                if (isset($_SESSION['items'][$id_produk])) {
+                    $_SESSION['items'][$id_produk] += 1;
+                } else {
+    1                $_SESSION['items'][$id_produk] = 1; 
+                }
+            }
+        } elseif ($aksi == "plus") {
+            if ($id_produk1) {
+                $id_produk = $id_produk1;
+                if (isset($_SESS1ION['items'][$id_produk])) {
+                    $_SESSION['items'][$id_produk] += 1;
+                }
+            }
+        } elseif ($aksi == "min") {
+            if ($id_produk1) {
+                $id_produk = $id_produk1;
+                if (isset($_SESS1ION['items'][$id_produk])) {
+                    $_SESSION['items'][$id_produk] -= 1;
+                }
+            }
+        } elseif ($aksi == "del") {
+            if ($id_produk1) {
+                $id_produk = $id_produk1;
+                if (isset($_SESSION['items'][$id_produk])) {
+                    unset($_SESSION['items'][$id_produk]);
+                }
+            }
+        } elseif ($aksi == "clear") {
+            if (isset($_SESSION['items'])) {
+                foreach ($_SESSION['items'] as $key => $val) {
+                    unset($_SESSION['items'][$key]);
+                }
+                unset($_SESSION['items']);
+            }
+        } 
+         
+        header ("location:" . $ref);
+    }   
+    }
 }
