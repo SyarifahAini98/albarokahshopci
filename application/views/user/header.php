@@ -68,6 +68,7 @@
 
 
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<?= base_url('beranda_pelanggan/profil_pelanggan');?>"><img src="<?= base_url('assets/');?>img/images_pelanggan/<?= $this->session->userdata('foto');?>" height="25px" width="25px">&nbsp;&nbsp;<?= $this->session->userdata('username');?></a></li>
                     <li><a href="<?= base_url('auth/logout');?>">Keluar</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
@@ -113,7 +114,7 @@
                             $no=1;
                             foreach ($data1 as $row):
                             ?>
-                            <li><a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
+                            <li><a href="<?= base_url('beranda_pelanggan/detail_produk/'.$row->id_produk);?>">
                                 <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="Alat_Musik"><h4><?= $row->nama_produk;?></h4>
                             </a></li>
                             <?php $no++;
@@ -124,7 +125,7 @@
                             $no=1;
                             foreach ($data2 as $row):
                             ?>
-                            <li><a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
+                            <li><a href="<?= base_url('beranda_pelanggan/detail_produk/'.$row->id_produk);?>">
                                 <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="Alat_Pancing"><h4><?= $row->nama_produk;?></h4>
                             </a></li>
                             <?php $no++;
@@ -135,7 +136,7 @@
                             $no=1;
                             foreach ($data3 as $row):
                             ?>
-                            <li><a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
+                            <li><a href="<?= base_url('beranda_pelanggan/detail_produk/'.$row->id_produk);?>">
                                 <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="Alat_Olahraga"><h4><?= $row->nama_produk;?></h4>
                             </a></li>
                             <?php $no++;
