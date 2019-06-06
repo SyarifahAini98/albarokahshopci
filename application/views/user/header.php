@@ -163,14 +163,16 @@
                     <div class="offer-text">
                         <div class="anic">TOP <?php echo $no;?></div>
                     </div>
+                    <a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
                     <div class="thumbnail product-box">
                         <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="" style="height:80px; width:80px;"/>
                         <div class="caption">
-                            <h3><a href="#"><?= $row->nama_produk;?></a></h3>
+                            <h3><?= $row->nama_produk;?></h3>
                             <p>Harga : <strong><font color="orange">Rp <?= $row->harga_produk;?></font></strong></p>
-                            <p><a href="#"><?= $row->merek;?></a></p>
+                            <p><font color="DodgerBlue"><?= $row->merek;?></font></p>
                         </div>
                     </div>
+                </a>
                 </div>
                 <?php $no++;
                 endforeach;?>
