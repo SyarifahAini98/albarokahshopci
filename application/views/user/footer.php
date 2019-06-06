@@ -1,6 +1,6 @@
 
     <div class="col-md-12 download-app-box text-center">
-        Dapatkan Produk - Produk Berkualitas Hanya di Toko <a href="#" class="btn btn-danger btn-lg">Al - Barokah Shop</a>
+        Dapatkan Produk - Produk Berkualitas Hanya di Toko <a href="<?= base_url('beranda_pelanggan');?>" class="btn btn-danger btn-lg">Al - Barokah Shop</a>
     </div>
 
     <!--Footer -->
