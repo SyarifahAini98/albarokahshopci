@@ -170,7 +170,7 @@
                         <div class="caption">
                             <h3><?= $row->nama_produk;?></h3>
                             <p>Harga : <strong><font color="orange">Rp <?= $row->harga_produk;?></font></strong></p>
-                            <p><?= $row->merek;?></p>
+                            <p><font color="DodgerBlue"><?= $row->merek;?></font></p>
                         </div>
                     </div>
                 </a>
