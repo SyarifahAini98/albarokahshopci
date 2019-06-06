@@ -169,7 +169,7 @@
                         <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="" style="height:80px; width:80px;"/>
                         <div class="caption">
                             <h3><?= $row->nama_produk;?></h3>
-                            <p>Harga : <strong>Rp <?= $row->harga_produk;?></strong></p>
+                            <p>Harga : <strong><font color="orange">Rp <?= $row->harga_produk;?></font></strong></p>
                             <p><?= $row->merek;?></p>
                         </div>
                     </div>
