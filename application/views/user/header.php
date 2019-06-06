@@ -60,7 +60,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><strong>Al - Barokah</strong> Shop</a>
+                <a class="navbar-brand" href="<?= base_url('beranda_pelanggan');?>"><strong>Al - Barokah</strong> Shop</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
