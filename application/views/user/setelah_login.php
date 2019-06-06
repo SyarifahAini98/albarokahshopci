@@ -3,9 +3,9 @@
                 <div>
                     <ol class="breadcrumb">
                         <li>Beranda</li>
-                        <li><a href="<?= base_url('beranda_pelanggan/cara_pemesanan');?>">Cara Pemesanan</a></li>
-                        <li><a href="<?= base_url('beranda_pelanggan/tentang_kami');?>">Tentang Kami</a></li>
-                        <li><a href="<?= base_url('beranda_pelanggan/profil_pelanggan');?>">Profil Pelanggan</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/profil_pelanggan');?>">Profil</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/keranjang');?>">Keranjang</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/transaksi');?>">Transaksi</a></li>
                     </ol>
                 </div>
                 <!-- /.div -->
