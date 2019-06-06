@@ -40,7 +40,7 @@
                                 <tr><td>Terjual</td><td>:</td><td><?= $row->terjual;?> produk</td></tr>
                                 <tr><td colspan="3">&nbsp;</td></tr>
                                 <tr><td colspan="3">
-                                    <a href="<?= base_url('beranda_pelanggan/fungsi_keranjang');?>" class="btn btn-danger" role="button" style="background-color: #FBEBED;"><font color="#D0011B">Masukkan Keranjang</font></a>
+                                    <a href="<?= base_url('beranda_pelanggan/fungsi_keranjang')?>?aksi=add&amp;id_produk=<?=$row->id_produk?>&amp;ref=<?=base_url('beranda_pelanggan/keranjang');?>" class="btn btn-danger" role="button" style="background-color: #FBEBED;"><font color="#D0011B">Masukkan Keranjang</font></a>
                                     <a href="<?= base_url('auth');?>" class="btn" role="button" style="background-color: #D0011B;"><font color="white">Beli Sekarang</font></a>
                                     </td>
                                 </tr>
