@@ -17,4 +17,15 @@ class Model_pelanggan extends CI_model{
     function hapus_session(){
         $this->session->sess_destroy();
     } 
+    
+    function get_keranjang(){
+        foreach ($_SESSION['items'] as $key => $val){
+            $query = $this->db->query("SELECT * FROM produk where id_produk = '$key'");
+             
+            $jumlah_harga = $rs['harga_produk'] * $val;
+            $total += $jumlah_harga;
+        return $query->result();
+        }
+    }
+
 }
