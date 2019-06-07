@@ -380,20 +380,8 @@ class Beranda_pelanggan extends CI_Controller {
             redirect("auth");
         }
 	}
-	public function edit_profil($id)
-	{
-		if($this->Model_pelanggan->cek_session())
-        {
-		$where = array('id_pelanggan' => $id);
-		$data['pelanggan'] = $this->model_edit_profil->edit_data($where,'pelanggan')->result();
-		$this->load->user('user/edit_profil',$data);
-		}else{
-			//jika session belum terdaftar, maka redirect ke halaman login
-            redirect("auth");
-        }
-    }
 
-	public function keranjang()
+	public function edit_profil()
 	{
 		if($this->Model_pelanggan->cek_session())
         {
@@ -410,7 +398,56 @@ class Beranda_pelanggan extends CI_Controller {
 			$this->load->view('user/sidebar_kiri',$data);
 			$data = array(
 				'data'=>$this->Model_pelanggan-> get_profil_pelanggan());
-			$this->load->view('user/keranjang',$data);
+			$this->load->view('user/edit_profil',$data);
+			$this->load->view('user/footer');
+			}else{
+			//jika session belum terdaftar, maka redirect ke halaman login
+            redirect("auth");
+        }
+	}
+
+	public function edit_proses_profil(){
+		if($this->input->post('btnEdit')){
+		$id_pelanggan=$this->session->userdata('id_pelanggan');
+		$data=array(
+			"username"=>$this->input->post('username'),
+			"email"=>$this->input->post('email'),
+			"nama_lengkap"=>$this->input->post('nama_lengkap'),
+			"jkel"=>$this->input->post('jkel'),
+			"no_telp"=>$this->input->post('no_telp'),
+			"alamat"=>$this->input->post('alamat')
+		);
+		$data2=[
+			'username'=>$data['username'],
+			'password'=>$data['password'],
+			'email'=>$data['email'],
+			'nama_lengkap'=>$data['nama_lengkap'],
+			'jkel'=>$data['jkel'],
+			'no_telp'=>$data['no_telp'],
+			'alamat'=>$data['alamat'],
+		];
+		$this->session->set_userdata($data2);
+		$this->Model_pelanggan->edit_proses_profil($id_pelanggan,$data);
+		redirect('Beranda_pelanggan/profil_pelanggan');
+		}
+	}
+
+	public function keranjang()
+	{
+		if($this->Model_pelanggan->cek_session())
+        {
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('user/header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('user/sidebar_kiri',$data);
+			$this->load->view('user/keranjang');
 			$this->load->view('user/footer');
 			}else{
 			//jika session belum terdaftar, maka redirect ke halaman login
