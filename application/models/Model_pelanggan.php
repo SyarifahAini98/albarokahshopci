@@ -5,8 +5,15 @@ class Model_pelanggan extends CI_model{
         return $this->db->get("pelanggan");
     }
     function get_profil_pelanggan(){
-        $query = $this->db->query("SELECT * FROM pelanggan WHERE id_pelanggan='9'");
+        $id_pelanggan=$this->session->userdata('id_pelanggan');
+        $query = $this->db->query("SELECT * FROM pelanggan WHERE id_pelanggan='$id_pelanggan'");
         return $query->result();
+    }
+
+    function edit_proses_profil($id_pelanggan,$data)
+    {
+        $this->db->where('id_pelanggan',$id_pelanggan);
+        $this->db->update('pelanggan',$data);
     }
 
     function cek_session()
@@ -19,12 +26,18 @@ class Model_pelanggan extends CI_model{
     } 
     
     function get_keranjang(){
-        foreach ($_SESSION['items'] as $key => $val){
+        $total = 0;
+        $data=[
+            'items'=>'0',
+        ];
+        $this->session->set_userdata($data);
+        $items=$this->session->userdata('items');
+        foreach ($items as $key => $val){
             $query = $this->db->query("SELECT * FROM produk where id_produk = '$key'");
-             
-            $jumlah_harga = $rs['harga_produk'] * $val;
+            $harga_produk=$this->db->get_where('produk',['harga_produk'=>$harga_produk])->row_array();
+            $jumlah_harga = $harga_produk * $val;
             $total += $jumlah_harga;
-        return $query->result();
+            return $query->result();
         }
     }
 
