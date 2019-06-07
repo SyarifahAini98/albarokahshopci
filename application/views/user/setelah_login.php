@@ -45,7 +45,9 @@
                                 <h3><?= $row->nama_produk;?></h3>
                                 <p>Harga : <strong><font color="orange">Rp <?= $row->harga_produk;?></font></strong>  </p>
                                 <p><font color="DodgerBlue"><?= $row->merek;?></font></p>
-                                <p><a href="<?= base_url('auth');?>" class="btn btn-success" role="button">Beli</a> <a href="<?= base_url('beranda_pelanggan/detail_produk/'.$row->id_produk);?>" class="btn btn-primary" role="button">Lihat</a></p>
+                                <p>
+                                    <!-- fungsi_keranjang.php?act=add&amp;id_produk=<?php echo $data['id_produk']; ?>&amp;ref=keranjang.php -->
+                                    <a href="<?= base_url('beranda_pelanggan/fungsi_keranjang?aksi=add&amp;id_produk='.$row->id_produk.'&amp;ref='.base_url('beranda_pelanggan/keranjang').'');?>" class="btn btn-success" role="button">Beli</a> <a href="<?= base_url('beranda_pelanggan/detail_produk/'.$row->id_produk);?>" class="btn btn-primary" role="button">Lihat</a></p>
                             </div>
                         </div>
                     </div>
