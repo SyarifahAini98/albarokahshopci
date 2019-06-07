@@ -23,6 +23,7 @@
                                     </td>
                                 <tr><td width="15%">Username</td><td width="4%">:</td><td><?= $row->username;?></td></tr>
                                 <tr><td>Email</td><td>:</td><td><strong><font color="orange"> <?= $row->email;?></font></strong></td></tr>
+                                <tr><td>Nama Lengkap</td><td>:</td><td><?= $row->nama_lengkap;?></td></tr>
                                 <tr><td>Jenis Kelamin</td><td>:</td><td><?= $row->jkel;?></td></tr>
                                 <tr><td>No. Telp</td><td>:</td><td><?= $row->no_telp;?></td></tr>
                                 <tr><td>Alamat</td><td>:</td><td><?= $row->alamat;?></td></tr>
@@ -33,7 +34,7 @@
                                 </tr>
                             </table>
                             </center>
-                         <center>   <a href="<?= base_url('edit_profil');?>" class="btn btn-danger" role="button" style="background-color: #FBEBED;"><font color="#D0011B">Edit Profil</font></a>
+                         <center>   <a href="<?= base_url('beranda_pelanggan/edit_profil');?>" class="btn btn-primary" role="button">Edit Profil</a>
             </center>
             </div>
             <!-- /.col -->
