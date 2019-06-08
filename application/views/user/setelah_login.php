@@ -1,4 +1,3 @@
-
             <div class="col-md-9">
                 <div>
                     <ol class="breadcrumb">
@@ -34,25 +33,49 @@
                 </div>
                 <!-- /.row -->
                 <div class="row">
-                    <?php
-                    $no=1;
-                    foreach ($data2 as $row):
-                    ?>
+            <?php
+            
+            // "$products" send from "shopping" controller,its stores all product which available in database. 
+            foreach ($data2 as $product) {
+                $id = $product->id_produk;
+                $name = $product->nama_produk;
+                $description = $product->merek;
+                $price = $product->harga_produk;
+                $foto = $product->foto;
+                ?>
                     <div class="col-md-4 text-center col-sm-6 col-xs-6">
                         <div class="thumbnail product-box" style="height: 300px;">
-                            <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="" style="height:80px; width:80px;"/>
+                            <img src="<?= base_url('assets/');?>/img/images_produk/<?= $foto?>" style="height:80px; width:80px;" alt="" style="height:80px; width:80px;"/>
                             <div class="caption">
-                                <h3><?= $row->nama_produk;?></h3>
-                                <p>Harga : <strong><font color="orange">Rp <?= $row->harga_produk;?></font></strong>  </p>
-                                <p><font color="DodgerBlue"><?= $row->merek;?></font></p>
+                                <h3><?php echo $name; ?></h3>
+                                <p>Harga : <strong><font color="orange">Rp <?php echo $price; ?></font></strong>  </p>
+                                <p><font color="DodgerBlue"><?php echo $description; ?></font></p>
                                 <p>
+                                    <?php
+                        
+                        // Create form and send values in 'beranda_pelanggan/add' function.
+                        echo form_open('beranda_pelanggan/add');
+                        echo form_hidden('id', $id);
+                        echo form_hidden('name', $name);
+                        echo form_hidden('price', $price);
+                        ?>
+                        <?php
+                        $btn = array(
+                            'class' => 'btn btn-success',
+                            'value' => 'Beli',
+                            'name' => 'action'
+                        );
+                        
+                        // Submit Button.
+                        echo form_submit($btn);
+                        echo form_close();
+                        ?>
                                     <!-- fungsi_keranjang.php?act=add&amp;id_produk=<?php echo $data['id_produk']; ?>&amp;ref=keranjang.php -->
-                                    <a href="<?= base_url('beranda_pelanggan/fungsi_keranjang?aksi=add&amp;id_produk='.$row->id_produk.'&amp;ref='.base_url('beranda_pelanggan/keranjang').'');?>" class="btn btn-success" role="button">Beli</a> <a href="<?= base_url('beranda_pelanggan/detail_produk/'.$row->id_produk);?>" class="btn btn-primary" role="button">Lihat</a></p>
+                                    <!-- <a href="<?= base_url('beranda_pelanggan/fungsi_keranjang/add/'.$row->id_produk.'');?>" class="btn btn-success" role="button">Beli</a> --> <a href="<?= base_url('beranda_pelanggan/detail_produk/'.$id);?>" class="btn btn-primary" role="button">Lihat</a></p>
                             </div>
                         </div>
                     </div>
-                    <?php $no++;
-                    endforeach;?>
+                    <?php } ?>
                     <!-- /.col -->
                 </div>
                 <!-- /.row -->
