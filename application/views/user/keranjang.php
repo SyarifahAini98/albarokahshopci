@@ -1,54 +1,108 @@
-<div class="col-md-9">
-                <div>
-                    <ol class="breadcrumb">
-                     <li><a href="<?= base_url('beranda_pelanggan');?>">Beranda</a></li>
-                        <li><a href="<?= base_url('beranda_pelanggan/profil_pelanggan');?>">Profil</a></li>
-                        <li>Keranjang</li>
-                        <li><a href="<?= base_url('beranda_pelanggan/transaksi');?>">Transaksi</a></li>
-                    </ol>
-                </div>
-                <!-- /.div -->
-                <div class="row">
+
+          <script type="text/javascript">
+            // To conform clear all data in cart.
+            function clear_cart() {
+                var result = confirm('Apakah Anda yakin ingin mengosongkan keranjang?');
+
+                if (result) {
+                    window.location = "<?php echo base_url(); ?>index.php/beranda_pelanggan/remove/all";
+                } else {
+                    return false; // cancel button
+                }
+            }
+        </script>
+             <a href="javascript: history.go(-1)"><button type="button" class="btn btn-default">Kembali</button></a>
+             <input type="button" class ='btn btn-default' value="Kosongkan" onclick="clear_cart()">
+        <?php  $cart_check = $this->cart->contents();
+            
+            // If cart is empty, this will show below message.
+             if(empty($cart_check)) {
+             echo 'Untuk menambah produk ke keranjang silahkan klik pada tombol "Tambah"'; 
+             }  ?>
+             <table width="75%" border="0" style="padding: 5px;border-spacing:5px;border-collapse: separate;">
+                  <?php
+                  // All values of cart store in "$cart". 
+                  if ($cart = $this->cart->contents()): ?>
+                    <tr>
+                        <td><center>Kode Produk</center></td>
+                        <td><center>Nama Produk</center></td>
+                        <td><center>Harga</center></td>
+                        <td><center>Qty</center></td>
+                        <td><center>Jumlah Harga</center></td>
+                        <td><center>Aksi</center></td>
+                    </tr>
                     <?php
-                    $no=0;
-                    $total = 0;
-                    $data=[
-                        'items'=>'0',
-                    ];
-                    $this->session->set_userdata($data);
-                    $items=$this->session->userdata('items');
-                    foreach ($items as $key => $val):
-                        $query = $this->db->query("SELECT * FROM produk where id_produk = '$key'");
-                        $produk=$this->db->get_where('produk',['id_produk'=>$key])->row_array();
-                        $jumlah_harga = $produk['harga_produk'] * $val;
-                        $total += $jumlah_harga;
-                        return $query->result();
-                    ?>
-               <center>
-               <table border="1" width="100%" style="padding: 5px;border-spacing:5px;border-collapse: separate;">
-                                <tr><td width="15%">Kode Produk</td><td width="4%">:</td><td><?= $produk['id_produk'];?></td></tr>
-                                <tr><td>Harga</td><td>:</td><td><strong><font color="orange"></font></strong></td></tr>
-                                <tr><td>Qty</td><td>:</td><td></td></tr>
-                                <tr><td>Berat</td><td>:</td><td></td></tr>
-                                <tr><td>Jumlah Harga</td><td>:</td><td></td></tr>
-                                <tr><td>Aksi</td><td>:</td><td></td></tr>
-                                <tr><td colspan="3">&nbsp;</td></tr>
-                                <tr><td colspan="3"></tr>
-                               
-                                    </td>
-                                </tr>
-                            </table>
-                            </center>
-                         <center>   <a href="<?= base_url('beranda_pelanggan/edit_profil');?>" class="btn btn-primary" role="button">Edit Profil</a>
-            </center>
-            </div>
-            <!-- /.col -->
+                     // Create form and send all values in "beranda_pelanggan/update_cart" function.
+                    echo form_open('beranda_pelanggan/update_cart');
+                    $grand_total = 0;
+                    $i = 1;
+
+                    foreach ($cart as $item):
+                        //   echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
+                        //  Will produce the following output.
+                        // <input type="hidden" name="cart[1][id]" value="1" />
+                        
+                        echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
+                        echo form_hidden('cart[' . $item['id'] . '][rowid]', $item['rowid']);
+                        echo form_hidden('cart[' . $item['id'] . '][name]', $item['name']);
+                        echo form_hidden('cart[' . $item['id'] . '][price]', $item['price']);
+                        echo form_hidden('cart[' . $item['id'] . '][qty]', $item['qty']);
+                        ?>
+                        <tr>
+                            <td>
+                       <!-- <?php echo $i++; ?> -->
+                      <center><?php echo $item['id']; ?></center>
+                            </td>
+                            <td>
+                      <?php echo $item['name']; ?>
+                            </td>
+                            <td>
+                                Rp <?php echo number_format($item['price'], 2); ?>
+                            </td>
+                            <td>
+                                <center>
+                            <?php echo form_input('cart[' . $item['id'] . '][qty]', $item['qty'], 'maxlength="3" size="1" style="text-align: center"'); ?>
+                            </center></td>
+                        <?php $grand_total = $grand_total + $item['subtotal']; ?>
+                            <td>
+                                Rp <?php echo number_format($item['subtotal'], 2) ?>
+                            </td>
+                            <td>
+                              
+                            <?php 
+                            // cancle image.
+                            $path = "<img src='http://localhost/albarokahshopci/assets/img/hapus.png' width='25px' height='20px'>";
+                            echo anchor('beranda_pelanggan/remove/' . $item['rowid'], $path); ?>
+                            </td>
+                     <?php endforeach; ?>
+                    </tr>
+                    <tr><td colspan="5">&nbsp;</tr>
+                    <tr>
+                        <td colspan="4" align="right"><b>Sub Total:</b></td><td align="left"><b>Rp <?php 
+                        
+                        //Grand Total.
+                        echo number_format($grand_total, 2); ?></b></td>
+                        
+                        <?php // "clear cart" button call javascript confirmation message ?>
+                        <td></td>
+                    </tr>
+                    <tr><td colspan="5">&nbsp;</tr>
+                    <tr>
+                        <td></td>
+                        
+                        <?php // "clear cart" button call javascript confirmation message ?>
+                        <td colspan="5" align="right">
+                            
+                            <?php //submit button. ?>
+                            <input type="submit" class ='btn btn-success' value="Perbarui">
+                            <?php echo form_close(); ?>
+                            
+                            <!-- "Place order button" on click send "billing" controller  -->
+                            <input type="button" class ='btn btn-primary' value="Checkout" onclick="window.location = 'beranda_pelanggan/billing_view'"></td>
+                    </tr>
+<?php endif; ?>
+            </table>
         </div>
         <!-- /.row -->
-        <?php $no++;
-                    endforeach;?>
     </div>
     <!-- /.container -->
-            </div>
-            <!-- /.col -->
-        
