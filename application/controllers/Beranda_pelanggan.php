@@ -10,6 +10,7 @@ class Beranda_pelanggan extends CI_Controller {
 		$this->load->model('model_edit_profil');
 		$this->load->helper('url');
 		$this->load->library('form_validation');
+		$this->load->library('cart');
 	}
 	
 	public function index()
@@ -37,6 +38,134 @@ class Beranda_pelanggan extends CI_Controller {
             redirect("auth");
         }
 	}
+
+	 function add()
+	{
+              // Set array for send data.
+		$insert_data = array(
+			'id' => $this->input->post('id'),
+			'name' => $this->input->post('name'),
+			'price' => $this->input->post('price'),
+			'qty' => 1
+		);		
+
+                 // This function add items into cart.
+		$this->cart->insert($insert_data);
+	      
+                // This will show insert data in cart.
+		redirect('Beranda_pelanggan/keranjang');
+	     }
+	
+		function remove($rowid) {
+                    // Check rowid value.
+		if ($rowid==="all"){
+                       // Destroy data which store in  session.
+			$this->cart->destroy();
+		}else{
+                    // Destroy selected rowid in session.
+			$data = array(
+				'rowid'   => $rowid,
+				'qty'     => 0
+			);
+                     // Update cart data, after cancle.
+			$this->cart->update($data);
+		}
+		
+                 // This will show cancle data in cart.
+		redirect('Beranda_pelanggan/keranjang');
+	}
+	
+	    function update_cart(){
+                
+                // Recieve post values,calcute them and updates
+                $cart_info =  $_POST['cart'] ;
+ 		foreach( $cart_info as $id => $cart)
+		{	
+                    $rowid = $cart['rowid'];
+                    $price = $cart['price'];
+                    $amount = $price * $cart['qty'];
+                    $qty = $cart['qty'];
+                    
+                    	$data = array(
+				'rowid'   => $rowid,
+                                'price'   => $price,
+                                'amount' =>  $amount,
+				'qty'     => $qty
+			);
+             
+			$this->cart->update($data);
+		}
+		redirect('Beranda_pelanggan/keranjang');        
+	}	
+        function billing_view(){
+                // Load "billing_view".
+		$this->load->view('billing_view');
+        }
+        
+        	public function save_order()
+	{
+          // This will store all values which inserted  from user.
+		$customer = array(
+			'name' 		=> $this->input->post('name'),
+			'email' 	=> $this->input->post('email'),
+			'address' 	=> $this->input->post('address'),
+			'phone' 	=> $this->input->post('phone')
+		);		
+                 // And store user imformation in database.
+		$cust_id = $this->billing_model->insert_customer($customer);
+
+		$order = array(
+			'date' 			=> date('Y-m-d'),
+			'customerid' 	=> $cust_id
+		);		
+
+		$ord_id = $this->billing_model->insert_order($order);
+		
+		if ($cart = $this->cart->contents()):
+			foreach ($cart as $item):
+				$order_detail = array(
+					'orderid' 		=> $ord_id,
+					'productid' 	=> $item['id'],
+					'quantity' 		=> $item['qty'],
+					'price' 		=> $item['price']
+				);		
+
+                            // Insert product imformation with order detail, store in cart also store in database. 
+                
+		         $cust_id = $this->billing_model->insert_order_detail($order_detail);
+			endforeach;
+		endif;
+	      
+                // After storing all imformation in database load "billing_success".
+                $this->load->view('billing_success');
+	}
+
+	public function keranjang()
+	{
+		if($this->Model_pelanggan->cek_session())
+        {
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('user/header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('user/sidebar_kiri',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk(),
+				'data2'=>$this->Model_Produk->get_produk());
+			$this->load->view('user/keranjang',$data);
+			$this->load->view('user/footer');
+		}else{
+			//jika session belum terdaftar, maka redirect ke halaman login
+            redirect("auth");
+        }
+	}
+
 	public function kategori_alat_musik()
 	{
 			$data = array(
@@ -432,69 +561,5 @@ class Beranda_pelanggan extends CI_Controller {
 		}
 	}
 
-	public function keranjang()
-	{
-		if($this->Model_pelanggan->cek_session())
-        {
-			$data = array(
-				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
-				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
-				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
-				'data4'=>$this->Model_Produk->get_produk_header_populer());
-			$this->load->view('user/header',$data);
-			$data = array(
-				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
-				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
-				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
-			$this->load->view('user/sidebar_kiri',$data);
-			$this->load->view('user/keranjang');
-			$this->load->view('user/footer');
-			}else{
-			//jika session belum terdaftar, maka redirect ke halaman login
-            redirect("auth");
-        }
-	}
 
-    public function fungsi_keranjang($aksi,$id_produk)
-    {
-    if ($aksi!='' && $id_produk!='') {
-             
-        if ($aksi == "add") {
-            if ($id_produk) {
-                if ($_SESSION['items'][$id_produk]) {
-                    $_SESSION['items'][$id_produk] += 1;
-                } else {
-                    $_SESSION['items'][$id_produk] = 1; 
-                }
-            }
-        } elseif ($aksi == "plus") {
-            if ($id_produk) {
-                if (isset($_SESSION['items'][$id_produk])) {
-                    $_SESSION['items'][$id_produk] += 1;
-                }
-            }
-        } elseif ($aksi == "min") {
-            if ($id_produk) {
-                if (isset($_SESSION['items'][$id_produk])) {
-                    $_SESSION['items'][$id_produk] -= 1;
-                }
-            }
-        } elseif ($aksi == "del") {
-            if ($id_produk) {
-                if (isset($_SESSION['items'][$id_produk])) {
-                    unset($_SESSION['items'][$id_produk]);
-                }
-            }
-        } elseif ($aksi == "clear") {
-            if (isset($_SESSION['items'])) {
-                foreach ($_SESSION['items'] as $key => $val) {
-                    unset($_SESSION['items'][$key]);
-                }
-                unset($_SESSION['items']);
-            }
-        } 
-         
-        header ("location:" . $ref);
-    }   
-    }
 }
