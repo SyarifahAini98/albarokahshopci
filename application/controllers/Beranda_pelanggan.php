@@ -46,6 +46,7 @@ class Beranda_pelanggan extends CI_Controller {
 			'id' => $this->input->post('id'),
 			'name' => $this->input->post('name'),
 			'price' => $this->input->post('price'),
+			'berat' => $this->input->post('berat'),
 			'qty' => 1
 		);		
 
@@ -85,6 +86,7 @@ class Beranda_pelanggan extends CI_Controller {
                     $price = $cart['price'];
                     $amount = $price * $cart['qty'];
                     $qty = $cart['qty'];
+                    $berat = $cart['berat'];
                     
                     	$data = array(
 				'rowid'   => $rowid,
@@ -164,6 +166,11 @@ class Beranda_pelanggan extends CI_Controller {
 			//jika session belum terdaftar, maka redirect ke halaman login
             redirect("auth");
         }
+	}
+
+	public function checkout()
+	{
+		redirect("rajaongkir");
 	}
 
 	public function kategori_alat_musik()
