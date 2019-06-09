@@ -42,6 +42,7 @@
                 $description = $product->merek;
                 $price = $product->harga_produk;
                 $foto = $product->foto;
+                $berat = $product->berat;
                 ?>
                     <div class="col-md-4 text-center col-sm-6 col-xs-6">
                         <div class="thumbnail product-box" style="height: 300px;">
@@ -58,6 +59,7 @@
                         echo form_hidden('id', $id);
                         echo form_hidden('name', $name);
                         echo form_hidden('price', $price);
+                        echo form_hidden('berat', $berat);
                         ?>
                         <?php
                         $btn = array(
@@ -68,10 +70,11 @@
                         
                         // Submit Button.
                         echo form_submit($btn);
-                        echo form_close();
                         ?>
-                                    <!-- fungsi_keranjang.php?act=add&amp;id_produk=<?php echo $data['id_produk']; ?>&amp;ref=keranjang.php -->
-                                    <!-- <a href="<?= base_url('beranda_pelanggan/fungsi_keranjang/add/'.$row->id_produk.'');?>" class="btn btn-success" role="button">Beli</a> --> <a href="<?= base_url('beranda_pelanggan/detail_produk/'.$id);?>" class="btn btn-primary" role="button">Lihat</a></p>
+                        <a href="<?= base_url('beranda_pelanggan/detail_produk/'.$id);?>" class="btn btn-primary" role="button">Lihat</a>
+                        <?php
+                        echo form_close();
+                        ?></p>
                             </div>
                         </div>
                     </div>
