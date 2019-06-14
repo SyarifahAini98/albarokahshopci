@@ -131,7 +131,7 @@
                     </select>
                     <br>
                     <select class="form-control" name="origin" id="origin" disabled="">
-                        <option value="" selected="" disabled="">Lumajang</option>
+                        <option value="243" selected="" disabled="">Lumajang</option>
                     </select>
                   </div>
                 </div>
@@ -163,13 +163,13 @@
                     <h3 class="panel-title">Berat</h3>
                   </div>
                   <div class="panel-body">
-                    <input type="text" name="berat" placeholder="gram" id="berat" class="form-control" value="<?=$berat_total?>">
+                    <input type="text" name="berat" placeholder="gram" id="berat" class="form-control" value="<?=$berat_total?>" disabled="">
                     
                             <?php echo form_close(); ?>
 <?php endif; ?><br>
                     <select class="form-control" name="courier" id="courier">
                         <option value="">Pilih Kurir</option>
-                        <option value="jne">JNE</option>
+                        <option value="jne" selected="">JNE</option>
                         <option value="pos">POS</option>
                         <option value="tiki">TIKI</option>
                     </select>
