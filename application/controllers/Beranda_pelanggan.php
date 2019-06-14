@@ -86,12 +86,13 @@ class Beranda_pelanggan extends CI_Controller {
                     $price = $cart['price'];
                     $amount = $price * $cart['qty'];
                     $qty = $cart['qty'];
-                    $berat = $cart['berat'];
+                    $berat = $cart['berat']*$cart['qty'];
                     
                     	$data = array(
 				'rowid'   => $rowid,
                                 'price'   => $price,
                                 'amount' =>  $amount,
+                                'berat' => $berat,
 				'qty'     => $qty
 			);
              
@@ -568,5 +569,26 @@ class Beranda_pelanggan extends CI_Controller {
 		}
 	}
 
-
+	public function pesan_sekarang()
+	{
+		if($this->Model_pelanggan->cek_session())
+        {
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('user/header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('user/sidebar_kiri',$data);
+			$this->load->view('user/pesan_sekarang');
+			$this->load->view('user/footer');
+			}else{
+			//jika session belum terdaftar, maka redirect ke halaman login
+            redirect("auth");
+        }
+	}
 }
