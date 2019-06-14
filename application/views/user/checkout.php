@@ -43,12 +43,12 @@
                         <td><b><center>Qty</center></b></td>
                         <td><b><center>Berat</center></b></td>
                         <td><b><center>Jumlah Harga</center></b></td>
-                        <td><b><center>Aksi</center></b></td>
                     </tr>
                     <?php
                      // Create form and send all values in "beranda_pelanggan/update_cart" function.
                     echo form_open('beranda_pelanggan/update_cart');
                     $grand_total = 0;
+                    $berat_total = 0;
                     $i = 1;
 
                     foreach ($cart as $item):
@@ -76,43 +76,29 @@
                             </td>
                             <td>
                                 <center>
-                            <?php echo form_input('cart[' . $item['id'] . '][qty]', $item['qty'], 'maxlength="3" size="1" style="text-align: center"'); ?>
+                            <?php echo form_input('cart[' . $item['id'] . '][qty]', $item['qty'], 'maxlength="3" size="1" style="text-align: center"disabled'); ?>
                             </center></td>
                             <td><center><?php echo $item['berat']; ?> gr</center></td>
-                        <?php $grand_total = $grand_total + $item['subtotal']; ?>
+                        <?php $grand_total = $grand_total + $item['subtotal'];
+                        $berat_total = $berat_total+$item['berat']; ?>
                             <td>
                                 Rp <?php echo number_format($item['subtotal'], 2) ?>
                             </td>
-                            <td>
-                              
-                            <?php 
-                            // cancle image.
-                            $path = "<img src='http://localhost/albarokahshopci/assets/img/hapus.png' width='25px' height='20px'>";
-                            echo anchor('beranda_pelanggan/remove/' . $item['rowid'], $path); ?>
-                            </td>
                      <?php endforeach; ?>
                     </tr>
-                    <tr><td colspan="7">&nbsp;</tr>
+                    <tr><td colspan="6">&nbsp;</tr>
                     <tr>
                         <td colspan="5" align="right"><b>Sub Total:</b></td><td align="left"><b>Rp <?php 
                         
                         //Grand Total.
-                        echo number_format($grand_total, 2); ?></b></td>
+                        echo number_format($grand_total, 2); ?></b>
+                        <br>Berat Total : <?php
+                        echo $berat_total;
+                        ?> gr</td>
                         
                         <?php // "clear cart" button call javascript confirmation message ?>
-                        <td></td>
                     </tr>
-                    <tr><td colspan="7">&nbsp;</tr>
-                    <tr>
-                        <td></td>
-                        
-                        <?php // "clear cart" button call javascript confirmation message ?>
-                        <td colspan="7" align="right">
-                            
-                            <?php //submit button. ?>
-                            <?php echo form_close(); ?></td>
-                    </tr>
-<?php endif; ?>
+                    <tr><td colspan="6">&nbsp;</tr>
             </table>
             </center>
 
@@ -139,13 +125,13 @@
                     <h3 class="panel-title">Asal</h3>
                   </div>
                   <div class="panel-body">
-                    <select class="form-control" name="propinsi_asal" id="propinsi_asal" disabled>
-                        <option readonly>Lumajang</option>
+                    <select class="form-control" name="propinsi_asal" id="propinsi_asal" disabled="">
+                        <option value="11" selected="" disabled="">Jawa Timur</option>
                         <?php $this->load->view('user/rajaongkir/getProvince'); ?>
                     </select>
                     <br>
-                    <select class="form-control" name="origin" id="origin">
-                        <option value="" selected="" disabled="">Pilih Kota</option>
+                    <select class="form-control" name="origin" id="origin" disabled="">
+                        <option value="" selected="" disabled="">Lumajang</option>
                     </select>
                   </div>
                 </div>
@@ -177,8 +163,10 @@
                     <h3 class="panel-title">Berat</h3>
                   </div>
                   <div class="panel-body">
-                    <input type="text" name="berat" placeholder="gram" id="berat" class="form-control">
-                    <br>
+                    <input type="text" name="berat" placeholder="gram" id="berat" class="form-control" value="<?=$berat_total?>">
+                    
+                            <?php echo form_close(); ?>
+<?php endif; ?><br>
                     <select class="form-control" name="courier" id="courier">
                         <option value="">Pilih Kurir</option>
                         <option value="jne">JNE</option>
