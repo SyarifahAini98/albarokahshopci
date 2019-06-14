@@ -48,6 +48,7 @@
                      // Create form and send all values in "beranda_pelanggan/update_cart" function.
                     echo form_open('beranda_pelanggan/update_cart');
                     $grand_total = 0;
+                    $berat_total = 0;
                     $i = 1;
 
                     foreach ($cart as $item):
@@ -78,7 +79,9 @@
                             <?php echo form_input('cart[' . $item['id'] . '][qty]', $item['qty'], 'maxlength="3" size="1" style="text-align: center"'); ?>
                             </center></td>
                             <td><center><?php echo $item['berat']; ?> gr</center></td>
-                        <?php $grand_total = $grand_total + $item['subtotal']; ?>
+                        <?php $grand_total = $grand_total + $item['subtotal']; 
+                        $berat_total = $berat_total+$item['berat'];
+                        ?>
                             <td>
                                 Rp <?php echo number_format($item['subtotal'], 2) ?>
                             </td>
@@ -96,10 +99,13 @@
                         <td colspan="5" align="right"><b>Sub Total:</b></td><td align="left"><b>Rp <?php 
                         
                         //Grand Total.
-                        echo number_format($grand_total, 2); ?></b></td>
+                        echo number_format($grand_total, 2); ?></b>
+                        <br>Berat Total : <?php
+                        echo $berat_total;
+                        ?> gr
+                    </td>
                         
                         <?php // "clear cart" button call javascript confirmation message ?>
-                        <td></td>
                     </tr>
                     <tr><td colspan="7">&nbsp;</tr>
                     <tr>
