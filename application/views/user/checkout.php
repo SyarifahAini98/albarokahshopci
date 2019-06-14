@@ -139,8 +139,8 @@
                     <h3 class="panel-title">Asal</h3>
                   </div>
                   <div class="panel-body">
-                    <select class="form-control" name="propinsi_asal" id="propinsi_asal">
-                        <option value="" selected="" disabled="">Pilih Provinsi</option>
+                    <select class="form-control" name="propinsi_asal" id="propinsi_asal" disabled>
+                        <option readonly>Lumajang</option>
                         <?php $this->load->view('user/rajaongkir/getProvince'); ?>
                     </select>
                     <br>
