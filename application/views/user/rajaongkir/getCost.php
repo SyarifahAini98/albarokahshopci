@@ -1,7 +1,10 @@
 <?php  
 $curl = curl_init();
-
-
+$asal= $_POST['origin'];
+$destination = $_POST['destination'];
+$courier = $_POST['courier'];
+$berat = $_POST['berat'];
+$_SESSION['berat']=$berat;
 curl_setopt_array($curl, array(
   CURLOPT_URL => "http://api.rajaongkir.com/starter/cost",
   CURLOPT_RETURNTRANSFER => true,
@@ -10,7 +13,7 @@ curl_setopt_array($curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => "origin=$origin&destination=$destination&weight=$berat&courier=$courier",
+  CURLOPT_POSTFIELDS => "origin=234&destination=".$destination."&weight=".$berat."&courier=".$courier."",
   CURLOPT_HTTPHEADER => array(
     "content-type: application/x-www-form-urlencoded",
     "key: fbd791dbdaa5ed2f93cd83f0f68887ef"
