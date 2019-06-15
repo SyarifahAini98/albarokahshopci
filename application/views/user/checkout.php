@@ -126,12 +126,12 @@
                   </div>
                   <div class="panel-body">
                     <select class="form-control" name="propinsi_asal" id="propinsi_asal" disabled="">
-                        <option value="11" selected="" disabled="">Jawa Timur</option>
+                        <option value="11" selected="">Jawa Timur</option>
                         <?php $this->load->view('user/rajaongkir/getProvince'); ?>
                     </select>
                     <br>
                     <select class="form-control" name="origin" id="origin" disabled="">
-                        <option value="243" selected="" disabled="">Lumajang</option>
+                        <option value="243" selected="">Lumajang</option>
                     </select>
                   </div>
                 </div>
