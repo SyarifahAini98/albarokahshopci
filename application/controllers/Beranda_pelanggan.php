@@ -569,7 +569,62 @@ class Beranda_pelanggan extends CI_Controller {
 		}
 	}
 
-	public function pesan_sekarang()
+	public function pesan_sekarang($kurir,$perkiraan,$tarif_ongkir)
+	{
+		if($this->Model_pelanggan->cek_session())
+        {
+		$grand_total = 0;
+		$berat_total = 0;
+		// Calculate grand total.
+		if ($cart = $this->cart->contents()):
+		    foreach ($cart as $item):
+		        $grand_total = $grand_total + $item['subtotal'];
+		        $berat_total = $berat_total+$item['berat'];
+		    endforeach;
+		endif;
+		$data=[
+        	'id_pelanggan'=>$this->session->userdata('id_pelanggan'),
+			'sub_total'=>$grand_total,
+			'tarif_ongkir'=>$this->uri->segment('5'),
+			'total_bayar'=>'',
+			'tgl_pemesanan'=>date('Y-m-d'),
+			'tgl_transaksi'=>'',
+			'foto'=>'',
+			'status'=>'Belum Upload',
+			'alamat'=>$this->session->userdata('alamat'),
+			'perkiraan'=>$this->uri->segment('4'),
+			'rekening'=>'',
+			'kurir'=>$this->uri->segment('3'),
+			'berat'=>$berat_total
+		];
+		$this->db->insert('transaksi',$data);
+		if ($cart = $this->cart->contents()):
+			foreach ($cart as $item):
+			$ty = $this->db->query("SELECT COUNT(*) as total FROM transaksi")->row()->total;
+			
+			//foreach ($query as $row):
+				$order_detail = array(
+					'id_transaksi' 		=> $ty,
+					'id_produk' 	=> $item['id'],
+					'qty' 		=> $item['qty'],
+					'total_harga' 		=> $grand_total
+				);
+			//endforeach;		
+
+                            // Insert product imformation with order detail, store in cart also store in database. 
+                
+		$this->db->insert('detail_transaksi',$order_detail);
+			endforeach;
+		endif;
+		$this->cart->destroy();
+		redirect('Beranda_pelanggan/info_pembayaran');
+			}else{
+			//jika session belum terdaftar, maka redirect ke halaman login
+            redirect("auth");
+        }
+	}
+
+		public function info_pembayaran()
 	{
 		if($this->Model_pelanggan->cek_session())
         {
@@ -584,7 +639,7 @@ class Beranda_pelanggan extends CI_Controller {
 				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
 				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
 			$this->load->view('user/sidebar_kiri',$data);
-			$this->load->view('user/pesan_sekarang');
+			$this->load->view('user/info_pembayaran');
 			$this->load->view('user/footer');
 			}else{
 			//jika session belum terdaftar, maka redirect ke halaman login
