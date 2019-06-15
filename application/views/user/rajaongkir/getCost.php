@@ -10,7 +10,8 @@ curl_setopt_array($curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_POSTFIELDS => "origin=$origin&destination=$destination&weight=$berat&courier=$courier",
+  CURLOPT_POSTFIELDS => "origin=243&destination=$destination&weight=$berat&courier=$courier",
+  // CURLOPT_POSTFIELDS => "origin=$origin&destination=$destination&weight=$berat&courier=$courier",
   CURLOPT_HTTPHEADER => array(
     "content-type: application/x-www-form-urlencoded",
     "key: fbd791dbdaa5ed2f93cd83f0f68887ef"
@@ -66,7 +67,7 @@ if ($err) {
 				 </td>
 				 <td align="center">&nbsp;<?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['etd'];?> hari</td>
 				 <td align="right">Rp <?php echo number_format($data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']);?></td>
-				 <td><!-- <a href="<?= base_url('beranda_pelanggan/pesan_sekarang/$data['rajaongkir']['results'][$k]['costs'][$l]['service']/$data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['etd']/$data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']');?>"> -->Pesan</a></td>
+				 <td><a>Pesan</a></td>
 			 </tr>
 			 <?php
 			 }
