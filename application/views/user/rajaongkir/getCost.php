@@ -67,7 +67,8 @@ if ($err) {
 				 </td>
 				 <td align="center">&nbsp;<?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['etd'];?> hari</td>
 				 <td align="right">Rp <?php echo number_format($data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']);?></td>
-				 <td><a>Pesan</a></td>
+				 <td><a href="<?php echo base_url('beranda_pelanggan/pesan_sekarang/'.$data['rajaongkir']['results'][$k]['costs'][$l]['service'].'/'.$data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['etd'].'/'.$data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']);?>">Pesan Sekarang</a>
+				</td>
 			 </tr>
 			 <?php
 			 }
