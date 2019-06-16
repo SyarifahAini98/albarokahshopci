@@ -382,6 +382,25 @@ class Beranda extends CI_Controller {
 			$this->load->view('footer');
 	}
 	
-
+        	public function pencarian_beranda()
+	{
+            $pencarian=$this->input->post('pencarian');
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('sidebar_kiri',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_pencarian($pencarian),
+				'data2'=>$this->Model_Produk->get_produk_pencarian($pencarian));
+			$this->load->view('pencarian_beranda',$data);
+			$this->load->view('footer');
+	}
 
 }

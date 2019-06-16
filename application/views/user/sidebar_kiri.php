@@ -34,7 +34,7 @@
                     </ul>
                 </div>
                 <!-- /.div -->
-                <div>
+<!--                 <div>
                     <a href="#" class="list-group-item active list-group-item-success">Testimoni
                     </a>
                     <ul class="list-group">
@@ -42,7 +42,7 @@
                              <span class="label label-danger pull-right"> </span>
                         </li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- /.div -->
             </div>
             <!-- /.col -->

@@ -229,7 +229,6 @@ a.more {
         <?php
         $no=1;
                 foreach ($data1 as $trs) {
-                $no = $trs->no;
                 $id_detail_trs = $trs->id_detail_trs;
                 $id_transaksi = $trs->id_transaksi;
                 $nama_produk = $trs->nama_produk;
@@ -242,20 +241,20 @@ a.more {
           <td><center><?php echo $nama_produk; ?></center></td>
           <td><center><?php echo $qty; ?></center></td>
           <td><center><?php echo $total_harga; ?></center></td>
-          <td><center>
-            
-            </center></td>
           <td><center><?php echo $status; ?></center></td>
           <td><center><?php echo $alamat; ?></center></td>
           <td><center><?php echo $perkiraan; ?></center></td>
           <td><center><?php echo $rekening; ?></center></td>
           <td><center><?php echo $kurir; ?></center></td>
           <td><center><?php echo $berat; ?></center></td>
-          <td><center>
+        </tr>
+        <?php
         $no++;
         }
         ?>
       </table>
+      <br>
+             <a href="javascript: history.go(-1)"><button type="button" class="btn btn-default">Kembali</button></a>
     </div>
   </div>
 </center>
