@@ -198,8 +198,11 @@ a.more {
 </style>
             <div class="col-md-9">
                 <div>
-                    <ol class="breadcrumb" style="text-align: center;">
-                        <li><center><a href="#">Info Pembayaran</a></center></li>
+                    <ol class="breadcrumb">
+                        <li><a href="<?= base_url('beranda_pelanggan');?>">Beranda</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/profil_pelanggan');?>">Profil</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/keranjang');?>">Keranjang</a></li>
+                        <li>Transaksi</li>
                     </ol>
                 </div>
                 <!-- /.div -->
@@ -262,7 +265,9 @@ a.more {
             if($foto==''){
               echo'-';
             }else{
-              echo '<img src="../images/images_transaksi/'.$foto.'" height="75px" width="75px">';
+              ?>
+              <img src="<?= base_url('assets/');?>/img/images_transaksi/<?= $foto?>" height="75px" width="75px">
+            <?php
             }
             ?>
             </center></td>

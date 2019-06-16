@@ -10,6 +10,7 @@ class Beranda_pelanggan extends CI_Controller {
 		$this->load->model('Model_transaksi');
 		$this->load->model('model_edit_profil');
 		$this->load->helper('url');
+		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$this->load->library('cart');
 	}
@@ -672,4 +673,39 @@ class Beranda_pelanggan extends CI_Controller {
             redirect("auth");
         }
 	}
+
+			public function konfirmasi_upload_bukti($id)
+	{
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('user/header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('user/sidebar_kiri',$data);
+
+
+			$data = array(
+				'data'=>$this->Model_transaksi->get_detail_transaksi($id));
+			$this->load->view('user/konfirmasi_upload_bukti',$data);
+			$this->load->view('user/footer');
+	}
+
+	public function proses_upload_gambar(){
+		$data['total_bayar']='1000';
+		$data['tgl_transaksi']=date('Y-m-d');
+		$data['status']='Terbayar';
+		$data['rekening']='123';
+            // $data['nama_mobil'] = $this->input->post('nama');
+            // $data['harga_sewa'] = $this->input->post('harga_sewa');
+            // $data['dp_sewa'] = $this->input->post('dp_sewa');
+            // $data['status'] = $this->input->post('status');
+            $id_transaksi=$this->input->post('id_transaksi');
+            $this->Model_transaksi->update_transaksi($id_transaksi, $data); //memakai fungsi update_mobil pada model mobil di model
+            //redirect(site_url('Data/mobil'));
+        }
 }
