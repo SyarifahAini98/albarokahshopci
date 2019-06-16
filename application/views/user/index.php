@@ -341,7 +341,7 @@
                     <!-- /.col -->
                 </div>
                 <!-- /.row -->
-                <div class="row">
+                <!--                 <div class="row">
                     <ul class="pagination alg-right-pad">
                         <li><a href="#">&laquo;</a></li>
                         <li><a href="#">1</a></li>
@@ -351,7 +351,7 @@
                         <li><a href="#">5</a></li>
                         <li><a href="#">&raquo;</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- /.row -->
                 <div>
                     <ol class="breadcrumb">
@@ -427,7 +427,7 @@
                     <!-- /.col -->
                 </div>
                 <!-- /.row -->
-                <div class="row">
+                <!--                 <div class="row">
                     <ul class="pagination alg-right-pad">
                         <li><a href="#">&laquo;</a></li>
                         <li><a href="#">1</a></li>
@@ -437,7 +437,7 @@
                         <li><a href="#">5</a></li>
                         <li><a href="#">&raquo;</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- /.row -->
             </div>
             <!-- /.col -->

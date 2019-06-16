@@ -1,11 +1,6 @@
+<head>
 <style type="text/css">
 /*CSS RESPONSIVE*/
-h3 {   
-   margin: 25px auto 20px;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 17px;
-}
 /* Table */
 table {
     margin: auto;
@@ -196,6 +191,8 @@ a.more {
     line-height: 0;
   }
 </style>
+</head>
+
             <div class="col-md-9">
                 <div>
                     <ol class="breadcrumb">
@@ -208,10 +205,7 @@ a.more {
                 <!-- /.div -->
                 <div class="row">
                     <div class="col-md-12 text-center col-sm-6 col-xs-6">
-                        <!-- <div class="thumbnail product-box" style="height: 300px;"> -->
-<center>
-
-  <div id="tabel_pemesanan"> 
+                      <div id="tabel_pemesanan"> 
     <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover" id="dataTables-example"> 
         <thead>
@@ -285,7 +279,7 @@ a.more {
               <?php
             }
             ?>
-            <a href="<?= base_url('beranda_pelanggan/detail_trs/'.$id_transaksi);?>" class="btn btn-info btn-xs">Lihat</a>
+            <!-- <a href="<?= base_url('beranda_pelanggan/detail_trs/'.$id_transaksi);?>" class="btn btn-info btn-xs">Lihat</a> -->
             </td>  
         </tr>
         <?php
@@ -293,10 +287,10 @@ a.more {
         }
         ?>
       </table>
+      <br>
+             <a href="javascript: history.go(-1)"><button type="button" class="btn btn-default">Kembali</button></a>
     </div>
-  </div>
-</center>
-                        <!-- </div> -->
+  </div>  
                     </div>
                     <!-- /.col -->
                 </div>

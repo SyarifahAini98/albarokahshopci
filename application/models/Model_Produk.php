@@ -23,6 +23,11 @@ class Model_Produk extends CI_Model {
 		$query = $this->db->query("SELECT COUNT(*) as total FROM produk");
 		return $query->result();
 	}
+
+	function get_jumlah_produk_pencarian($pencarian){
+		$query = $this->db->query("SELECT COUNT(*) as total FROM produk WHERE nama_produk LIKE '%$pencarian%'");
+		return $query->result();
+	}
 	function get_jumlah_produk_alat_musik(){
 		$query = $this->db->query("SELECT COUNT(*) as total FROM produk WHERE kategori='Alat Musik'");
 		return $query->result();

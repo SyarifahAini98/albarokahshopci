@@ -13,6 +13,12 @@
                     <?php
                     $no=1;
                     foreach ($data as $row):
+                $id = $row->id_produk;
+                $name = $row->nama_produk;
+                $description = $row->merek;
+                $price = $row->harga_produk;
+                $foto = $row->foto;
+                $berat = $row->berat;
                     ?>
                     <div class="col-md-12 text-center col-sm-6 col-xs-6">
                         <!-- <div class="thumbnail product-box" style="height: 300px;"> -->
@@ -40,8 +46,28 @@
                                 <tr><td>Terjual</td><td>:</td><td><?= $row->terjual;?> produk</td></tr>
                                 <tr><td colspan="3">&nbsp;</td></tr>
                                 <tr><td colspan="3">
-                                    <a href="<?= base_url('beranda_pelanggan/fungsi_keranjang')?>?aksi=add&amp;id_produk=<?=$row->id_produk?>&amp;ref=<?=base_url('beranda_pelanggan/keranjang');?>" class="btn btn-danger" role="button" style="background-color: #FBEBED;"><font color="#D0011B">Masukkan Keranjang</font></a>
-                                    <a href="<?= base_url('auth');?>" class="btn" role="button" style="background-color: #D0011B;"><font color="white">Beli Sekarang</font></a>
+                                    <?php
+                        
+                        // Create form and send values in 'beranda_pelanggan/add' function.
+                        echo form_open('beranda_pelanggan/add');
+                        echo form_hidden('id', $id);
+                        echo form_hidden('name', $name);
+                        echo form_hidden('price', $price);
+                        echo form_hidden('berat', $berat);
+                        ?>
+                        <?php
+                        $btn = array(
+                            'class' => 'btn btn-success',
+                            'value' => 'Masukkan Keranjang',
+                            'name' => 'action'
+                        );
+                        
+                        // Submit Button.
+                        echo form_submit($btn);
+                        ?>
+                        <?php
+                        echo form_close();
+                        ?>
                                     </td>
                                 </tr>
                             </table>

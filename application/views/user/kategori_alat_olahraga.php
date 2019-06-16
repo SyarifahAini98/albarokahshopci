@@ -3,9 +3,9 @@
                 <div>
                     <ol class="breadcrumb">
                         <li><a href="<?= base_url('beranda_pelanggan');?>">Beranda</a></li>
-                        <li><a href="<?= base_url('beranda_pelanggan/cara_pemesanan');?>">Cara Pemesanan</a></li>
-                        <li><a href="<?= base_url('beranda_pelanggan/tentang_kami');?>">Tentang Kami</a></li>
-                        <li><a href="<?= base_url('beranda_pelanggan/Profil_pelanggan');?>">Profil Pelanggan</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/profil_pelanggan');?>">Profil</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/keranjang');?>">Keranjang</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/transaksi');?>">Transaksi</a></li>
                     </ol>
                 </div>
                 <!-- /.div -->
@@ -54,7 +54,7 @@
                     <!-- /.col -->
                 </div>
                 <!-- /.row -->
-                <div class="row">
+                <!--                 <div class="row">
                     <ul class="pagination alg-right-pad">
                         <li><a href="#">&laquo;</a></li>
                         <li><a href="#">1</a></li>
@@ -64,7 +64,7 @@
                         <li><a href="#">5</a></li>
                         <li><a href="#">&raquo;</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- /.row -->
             </div>
             <!-- /.col -->

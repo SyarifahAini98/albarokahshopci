@@ -660,11 +660,6 @@ class Beranda_pelanggan extends CI_Controller {
 				'data4'=>$this->Model_Produk->get_produk_header_populer());
 			$this->load->view('user/header',$data);
 			$data = array(
-				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
-				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
-				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
-			$this->load->view('user/sidebar_kiri',$data);
-			$data = array(
 				'data1'=>$this->Model_transaksi->get_transaksi());
 			$this->load->view('user/transaksi',$data);
 			$this->load->view('user/footer');
@@ -726,7 +721,7 @@ class Beranda_pelanggan extends CI_Controller {
 				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
 			$this->load->view('user/sidebar_kiri',$data);
 			$data = array(
-				'data1'=>$this->Model_Produk->get_jumlah_produk(),
+				'data1'=>$this->Model_Produk->get_jumlah_produk_pencarian($pencarian),
 				'data2'=>$this->Model_Produk->get_produk_pencarian($pencarian));
 			$this->load->view('user/pencarian',$data);
 			$this->load->view('user/footer');

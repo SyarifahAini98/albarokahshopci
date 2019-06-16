@@ -100,9 +100,7 @@
                         
                         //Grand Total.
                         echo number_format($grand_total, 2); ?></b>
-                        <br>Berat Total : <?php
-                        echo $berat_total;
-                        ?> gr
+                        
                     </td>
                         
                         <?php // "clear cart" button call javascript confirmation message ?>

@@ -5,7 +5,6 @@
                         <li>Profil</li>
                         <li><a href="<?= base_url('beranda_pelanggan/keranjang');?>">Keranjang</a></li>
                         <li><a href="<?= base_url('beranda_pelanggan/transaksi');?>">Transaksi</a></li>
-                         <li><a href="<?= base_url('beranda_pelanggan/transaksi');?>">Testimoni</a></li>
                     </ol>
                 </div>
                 <!-- /.div -->
