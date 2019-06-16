@@ -27,7 +27,9 @@ class Model_transaksi extends CI_Model {
        
         if (!$this->upload->do_upload('file_name')){
             //$error = array('error'=>$this->upload->display_errors());
-            //echo $error;
+            //echo $error;?>
+            Ukuran File Terlalu Besar <a href="javascript: history.go(-1)" class="btn btn-default" role="button" style="float:left;">Kembali</a>
+            <?php
         }
         else {
             $upload_data = array('upload_data' => $this->upload->data());

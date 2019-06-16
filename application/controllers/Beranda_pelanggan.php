@@ -696,10 +696,10 @@ class Beranda_pelanggan extends CI_Controller {
 	}
 
 	public function proses_upload_gambar(){
-		$data['total_bayar']='1000';
 		$data['tgl_transaksi']=date('Y-m-d');
 		$data['status']='Terbayar';
-		$data['rekening']='123';
+		$data['alamat']=$this->input->post('alamat');
+		$data['rekening']=$this->input->post('rekening');
             // $data['nama_mobil'] = $this->input->post('nama');
             // $data['harga_sewa'] = $this->input->post('harga_sewa');
             // $data['dp_sewa'] = $this->input->post('dp_sewa');
@@ -708,8 +708,36 @@ class Beranda_pelanggan extends CI_Controller {
             $this->Model_transaksi->update_transaksi($id_transaksi, $data); //memakai fungsi update_mobil pada model mobil di model
             //redirect(site_url('Data/mobil'));
         }
-        public function testimoni(){
+
+        	public function pencarian()
+	{
 		if($this->Model_pelanggan->cek_session())
+        {
+            $pencarian=$this->input->post('pencarian');
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('user/header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('user/sidebar_kiri',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk(),
+				'data2'=>$this->Model_Produk->get_produk_pencarian($pencarian));
+			$this->load->view('user/pencarian',$data);
+			$this->load->view('user/footer');
+		}else{
+			//jika session belum terdaftar, maka redirect ke halaman login
+            redirect("auth");
+        }
+	}
+
+	        public function testimoni(){
+		if($this->Model_pelanggan->cek_session()){
 			$data = array(
 				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
 				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
@@ -729,4 +757,5 @@ class Beranda_pelanggan extends CI_Controller {
 			//jika session belum terdaftar, maka redirect ke halaman login
             redirect("auth");
         }
+    }
 }

@@ -2,9 +2,10 @@
             <div class="col-md-9">
                 <div>
                     <ol class="breadcrumb">
-                        <li><a href="<?= base_url('beranda');?>">Beranda</a></li>
-                        <li><a href="<?= base_url('beranda/cara_pemesanan');?>">Cara Pemesanan</a></li>
-                        <li><a href="<?= base_url('beranda/tentang_kami');?>">Tentang Kami</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan');?>">Beranda</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/cara_pemesanan');?>">Cara Pemesanan</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/tentang_kami');?>">Tentang Kami</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/Profil_pelanggan');?>">Profil Pelanggan</a></li>
                     </ol>
                 </div>
                 <!-- /.div -->
@@ -22,11 +23,11 @@
       <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="<?= base_url('beranda/harga_terendah_alat_olahraga');?>">Harga Terendah</a></li>
+                                <li><a href="<?= base_url('beranda_pelanggan/harga_terendah_alat_olahraga');?>">Harga Terendah</a></li>
                                 <li class="divider"></li>
-                                <li><a href="<?= base_url('beranda/harga_tertinggi_alat_olahraga');?>">Harga Tertinggi</a></li>
+                                <li><a href="<?= base_url('beranda_pelanggan/harga_tertinggi_alat_olahraga');?>">Harga Tertinggi</a></li>
                                 <li class="divider"></li>
-                                <li><a href="<?= base_url('beranda/populer_alat_olahraga');?>">Populer</a></li>
+                                <li><a href="<?= base_url('beranda_pelanggan/populer_alat_olahraga');?>">Populer</a></li>
                             </ul>
                         </div>
                     </div>

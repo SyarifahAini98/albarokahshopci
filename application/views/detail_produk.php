@@ -2,8 +2,10 @@
             <div class="col-md-9">
                 <div>
                     <ol class="breadcrumb">
-                        <li><a href="<?= base_url('beranda');?>">Beranda</a></li>
-                        <li><a href="<?= base_url('beranda/tentang_kami');?>">Tentang Kami</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan');?>">Beranda</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/profil_pelanggan');?>">Profil</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/keranjang');?>">Keranjang</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/transaksi');?>">Transaksi</a></li>
                     </ol>
                 </div>
                 <!-- /.div -->
@@ -13,7 +15,8 @@
                     foreach ($data as $row):
                     ?>
                     <div class="col-md-12 text-center col-sm-6 col-xs-6">
-                        <div class="thumbnail product-box" style="height: 300px;">
+                        <!-- <div class="thumbnail product-box" style="height: 300px;"> -->
+                        <a href="javascript: history.go(-1)" class="btn btn-default" role="button" style="float:left;">Kembali</a>
                             <center>
                             <table border="0" width="100%" style="padding: 5px;border-spacing:5px;border-collapse: separate;">
                                 <tr><td width="35%" rowspan="10"><!-- 
@@ -37,13 +40,13 @@
                                 <tr><td>Terjual</td><td>:</td><td><?= $row->terjual;?> produk</td></tr>
                                 <tr><td colspan="3">&nbsp;</td></tr>
                                 <tr><td colspan="3">
-                                    <a href="<?= base_url('auth');?>" class="btn btn-danger" role="button" style="background-color: #FBEBED;"><font color="#D0011B">Masukkan Keranjang</font></a>
+                                    <a href="<?= base_url('beranda_pelanggan/fungsi_keranjang')?>?aksi=add&amp;id_produk=<?=$row->id_produk?>&amp;ref=<?=base_url('beranda_pelanggan/keranjang');?>" class="btn btn-danger" role="button" style="background-color: #FBEBED;"><font color="#D0011B">Masukkan Keranjang</font></a>
                                     <a href="<?= base_url('auth');?>" class="btn" role="button" style="background-color: #D0011B;"><font color="white">Beli Sekarang</font></a>
                                     </td>
                                 </tr>
                             </table>
                             </center>
-                        </div>
+                        <!-- </div> -->
                     </div>
                     <?php $no++;
                     endforeach;?>

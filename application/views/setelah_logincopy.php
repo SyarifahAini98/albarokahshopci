@@ -2,10 +2,10 @@
             <div class="col-md-9">
                 <div>
                     <ol class="breadcrumb">
-                        <li><a href="<?= base_url('beranda_pelanggan');?>">Beranda</a></li>
-                        <li><a href="<?= base_url('beranda_pelanggan/cara_pemesanan');?>">Cara Pemesanan</a></li>
-                        <li><a href="<?= base_url('beranda_pelanggan/tentang_kami');?>">Tentang Kami</a></li>
-                        <li><a href="<?= base_url('beranda_pelanggan/Profil_pelanggan');?>">Profil Pelanggan</a></li>
+                        <li>Beranda</li>
+                        <li><a href="<?= base_url('beranda_pelanggan/profil_pelanggan');?>">Profil</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/keranjang');?>">Keranjang</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/transaksi');?>">Transaksi</a></li>
                     </ol>
                 </div>
                 <!-- /.div -->
@@ -23,11 +23,11 @@
       <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="<?= base_url('beranda_pelanggan/harga_terendah_alat_pancing');?>">Harga Terendah</a></li>
+                                <li><a href="<?= base_url('beranda_pelanggan/harga_terendah');?>">Harga Terendah</a></li>
                                 <li class="divider"></li>
-                                <li><a href="<?= base_url('beranda_pelanggan/harga_tertinggi_alat_pancing');?>">Harga Tertinggi</a></li>
+                                <li><a href="<?= base_url('beranda_pelanggan/harga_tertinggi');?>">Harga Tertinggi</a></li>
                                 <li class="divider"></li>
-                                <li><a href="<?= base_url('beranda_pelanggan/populer_alat_pancing');?>">Populer</a></li>
+                                <li><a href="<?= base_url('beranda_pelanggan/populer');?>">Populer</a></li>
                             </ul>
                         </div>
                     </div>
@@ -42,10 +42,12 @@
                         <div class="thumbnail product-box" style="height: 300px;">
                             <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="" style="height:80px; width:80px;"/>
                             <div class="caption">
-                                <h3><a href="#"><?= $row->nama_produk;?></a></h3>
-                                <p>Harga : <strong>Rp <?= $row->harga_produk;?></strong>  </p>
-                                <p><a href="#"><?= $row->merek;?></a></p>
-                                <p><a href="<?= base_url('auth');?>" class="btn btn-success" role="button">Beli</a> <a href="#" class="btn btn-primary" role="button">Lihat</a></p>
+                                <h3><?= $row->nama_produk;?></h3>
+                                <p>Harga : <strong><font color="orange">Rp <?= $row->harga_produk;?></font></strong>  </p>
+                                <p><font color="DodgerBlue"><?= $row->merek;?></font></p>
+                                <p>
+                                    <!-- fungsi_keranjang.php?act=add&amp;id_produk=<?php echo $data['id_produk']; ?>&amp;ref=keranjang.php -->
+                                    <a href="<?= base_url('beranda_pelanggan/fungsi_keranjang/add/'.$row->id_produk.'');?>" class="btn btn-success" role="button">Beli</a> <a href="<?= base_url('beranda_pelanggan/detail_produk/'.$row->id_produk);?>" class="btn btn-primary" role="button">Lihat</a></p>
                             </div>
                         </div>
                     </div>
