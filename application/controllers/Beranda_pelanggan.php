@@ -696,10 +696,10 @@ class Beranda_pelanggan extends CI_Controller {
 	}
 
 	public function proses_upload_gambar(){
-		$data['total_bayar']='1000';
 		$data['tgl_transaksi']=date('Y-m-d');
 		$data['status']='Terbayar';
-		$data['rekening']='123';
+		$data['alamat']=$this->input->post('alamat');
+		$data['rekening']=$this->input->post('rekening');
             // $data['nama_mobil'] = $this->input->post('nama');
             // $data['harga_sewa'] = $this->input->post('harga_sewa');
             // $data['dp_sewa'] = $this->input->post('dp_sewa');
