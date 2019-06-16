@@ -196,46 +196,19 @@ a.more {
     line-height: 0;
   }
 </style>
-<body>
-
-    <?php
-    include'sumber_header.php';
-    ?>
-
-    <nav class="navbar navbar-default" role="navigation" style="overflow:hidden; position: fixed; top:0; width: 100%;z-index: 3;">
-        <div class="container-fluid">
-            <?php include 'header.php';?>
-        </div>
-        <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    <?php
-    include'sidebar_kiri.php';?>
-        <div class="container" style='width:50%; float: left; width: 50%; margin-left:0px; margin-right:0px; margin-top: 65px;"'>
-            <div class="row">
-                <div class="col-md-9" style="width:100%;">
-                <!-- /.row -->
-                    <div class="row">
-                        <div>
-                            <ol class="breadcrumb">
-                                <li><a href="index.php">Beranda</a></li>
-                                <li><a href="profil_pelanggan.php">Profil</a></li>
-                                <li><a href="keranjang.php">Keranjang</a></li>
-                                <li><a href="transaksi.php">Transaksi</a></li>
-                                <li class="active">Testimoni</li>
-                            </ol>
-                        </div>
-<?php 
-    require_once("../admin/koneksi.php");
-    if (!isset($_SESSION)) {
-        session_start();
-    }
-$id=$_SESSION['id'];
-  $query = "SELECT * FROM transaksi,detail_transaksi,produk,pelanggan WHERE transaksi.id_transaksi=detail_transaksi.id_transaksi AND pelanggan.id_pelanggan=transaksi.id_pelanggan AND produk.id_produk=detail_transaksi.id_produk AND pelanggan.id_pelanggan=transaksi.id_pelanggan AND transaksi.id_pelanggan = '$id' AND transaksi.status='Terbayar' OR transaksi.status='Terkirim' ORDER BY transaksi.id_transaksi";
-  $result = mysqli_query($koneksi, $query);
-$result = mysqli_query($koneksi, $query);
-?>
+            <div class="col-md-9">
+                <div>
+                    <ol class="breadcrumb">
+                        <li><a href="<?= base_url('beranda_pelanggan');?>">Beranda</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/profil_pelanggan');?>">Profil</a></li>
+                        <li><a href="<?= base_url('beranda_pelanggan/keranjang');?>">Keranjang</a></li>
+                        <li>Transaksi</li>
+                    </ol>
+                </div>
+                <!-- /.div -->
+                <div class="row">
+                    <div class="col-md-12 text-center col-sm-6 col-xs-6">
+                        <!-- <div class="thumbnail product-box" style="height: 300px;"> -->
 <center>
 
   <div id="tabel_pemesanan"> 
@@ -255,41 +228,30 @@ $result = mysqli_query($koneksi, $query);
         </thead>
         <?php
         $no=1;
-        while($row = mysqli_fetch_array($result))
-          {
-        ?>
-        <tr class="odd gradeX">
-          <?php
-          echo'
-          <td><center>'.$no.'</center></td>
-          <td><center>'.$row["id_detail_trs"].'</center></td>
-          <td><center>'.$row["id_transaksi"].'</center></td>
-          <td>'.$row["nama_produk"].'</td>
-          <td><center>'.$row["qty"].'</center></td>
-          <td><center>'.$row["total_harga"].'</center></td>
-          <td><center>';?>
-            <?php
-            if($row["testimoni"]==''){
-              echo'-';
-            }else{
-              echo $row["testimoni"];
-            }
-            ?>
-            </center></td>
-          <td><center>
-            <?php
-            if($row["testimoni"]==''){
+                foreach ($data1 as $trs) {
+                $no = $trs->no;
+                $id_detail_trs = $trs->id_detail_trs;
+                $id_transaksi = $trs->id_transaksi;
+                $nama_produk = $trs->nama_produk;
+                $qty = $trs->qty;
+                $total_harga = $trs->total_harga;
                 ?>
-            <a href="beri_testimoni.php?id=<?php echo $row['id_detail_trs'];?>" class="btn btn-success btn-xs">Beri Testimoni</a>
-                <?php
-            }else{
-              echo '-';
-            }
-            ?>
-          </center></td>
-          <?php'
-        </tr>
-        <?php
+          <td><center><?php echo $no; ?>.</center></td>
+          <td><center><?php echo $id_detail_trs; ?></center></td>
+          <td><center><?php echo $id_transaksi; ?></center></td>
+          <td><center><?php echo $nama_produk; ?></center></td>
+          <td><center><?php echo $qty; ?></center></td>
+          <td><center><?php echo $total_harga; ?></center></td>
+          <td><center>
+            
+            </center></td>
+          <td><center><?php echo $status; ?></center></td>
+          <td><center><?php echo $alamat; ?></center></td>
+          <td><center><?php echo $perkiraan; ?></center></td>
+          <td><center><?php echo $rekening; ?></center></td>
+          <td><center><?php echo $kurir; ?></center></td>
+          <td><center><?php echo $berat; ?></center></td>
+          <td><center>
         $no++;
         }
         ?>
@@ -297,19 +259,14 @@ $result = mysqli_query($koneksi, $query);
     </div>
   </div>
 </center>
-
+                        <!-- </div> -->
                     </div>
-                    <!-- /.row -->
+                    <!-- /.col -->
                 </div>
-                <!-- /.container -->
+                <!-- /.row -->
             </div>
-        </div></div>
-<?php include'sidebar_kanan.php';?>
-<?php include'footer.php';?>
-</body>
-</html>
-<?php
-}else{
-    echo'<script>window.location="../masuk.php"</script>';
-}
-?>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
