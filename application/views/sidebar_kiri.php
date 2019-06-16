@@ -7,7 +7,7 @@
                         <?php
                         foreach ($data1 as $row):
                         ?>
-                        <a href="<?= base_url('beranda/kategori_alat_musik');?>">
+                        <a href="<?= base_url('beranda_pelanggan/kategori_alat_musik');?>">
                         <li class="list-group-item">Alat Musik
       <span class="label label-primary pull-right"><?= $row->total;?></span>
                         </li>
@@ -16,7 +16,7 @@
                         <?php
                         foreach ($data2 as $row):
                         ?>
-                        <a href="<?= base_url('beranda/kategori_alat_pancing');?>">
+                        <a href="<?= base_url('beranda_pelanggan/kategori_alat_pancing');?>">
                         <li class="list-group-item">Alat Pancing
                       <span class="label label-success pull-right"><?= $row->total;?></span>
                         </li>
@@ -25,7 +25,7 @@
                         <?php
                         foreach ($data3 as $row):
                         ?>
-                        <a href="<?= base_url('beranda/kategori_alat_olahraga');?>">
+                        <a href="<?= base_url('beranda_pelanggan/kategori_alat_olahraga');?>">
                         <li class="list-group-item">Alat Olahraga
                          <span class="label label-danger pull-right"><?= $row->total;?></span>
                         </li>
