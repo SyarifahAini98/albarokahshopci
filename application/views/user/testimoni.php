@@ -196,7 +196,6 @@ a.more {
     line-height: 0;
   }
 </style>
-
 <body>
 
     <?php

@@ -729,5 +729,4 @@ class Beranda_pelanggan extends CI_Controller {
 			//jika session belum terdaftar, maka redirect ke halaman login
             redirect("auth");
         }
-     
 }
