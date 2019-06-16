@@ -9,7 +9,11 @@ class Model_Produk extends CI_Model {
 		$query = $this->db->query("SELECT * FROM produk");
 		return $query->result();
 	}
-    
+    	function get_produk_pencarian($pencarian){
+		$query = $this->db->query("SELECT * FROM produk WHERE nama_produk LIKE '%$pencarian%' ORDER BY id_produk DESC");
+		return $query->result();
+	}
+
 	function get_detail_produk($id){
 		$query = $this->db->query("SELECT * FROM produk WHERE id_produk='$id'");
 		return $query->result();

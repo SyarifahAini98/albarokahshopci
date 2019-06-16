@@ -708,4 +708,31 @@ class Beranda_pelanggan extends CI_Controller {
             $this->Model_transaksi->update_transaksi($id_transaksi, $data); //memakai fungsi update_mobil pada model mobil di model
             //redirect(site_url('Data/mobil'));
         }
+
+        	public function pencarian()
+	{
+		if($this->Model_pelanggan->cek_session())
+        {
+            $pencarian=$this->input->post('pencarian');
+			$data = array(
+				'data1'=>$this->Model_Produk->get_header_produk_terbaru_alat_musik(),
+				'data2'=>$this->Model_Produk->get_header_produk_terbaru_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_header_produk_terbaru_alat_olahraga(),
+				'data4'=>$this->Model_Produk->get_produk_header_populer());
+			$this->load->view('user/header',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk_alat_musik(),
+				'data2'=>$this->Model_Produk->get_jumlah_produk_alat_pancing(),
+				'data3'=>$this->Model_Produk->get_jumlah_produk_alat_olahraga());
+			$this->load->view('user/sidebar_kiri',$data);
+			$data = array(
+				'data1'=>$this->Model_Produk->get_jumlah_produk(),
+				'data2'=>$this->Model_Produk->get_produk_pencarian($pencarian));
+			$this->load->view('user/pencarian',$data);
+			$this->load->view('user/footer');
+		}else{
+			//jika session belum terdaftar, maka redirect ke halaman login
+            redirect("auth");
+        }
+	}
 }

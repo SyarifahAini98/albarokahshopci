@@ -1,3 +1,4 @@
+<head>
 <style type="text/css">
 /*CSS RESPONSIVE*/
 h3 {   
@@ -196,6 +197,7 @@ a.more {
     line-height: 0;
   }
 </style>
+</head>
             <div class="col-md-9">
                 <div>
                     <ol class="breadcrumb">
@@ -207,11 +209,8 @@ a.more {
                 </div>
                 <!-- /.div -->
                 <div class="row">
-                    <div class="col-md-12 text-center col-sm-6 col-xs-6">
-                        <!-- <div class="thumbnail product-box" style="height: 300px;"> -->
-<center>
-
-  <div id="tabel_pemesanan"> 
+             <a href="javascript: history.go(-1)"><button type="button" class="btn btn-default">Kembali</button></a>
+<div id="tabel_pemesanan"> 
     <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover" id="dataTables-example"> 
         <thead>
@@ -294,12 +293,7 @@ a.more {
         ?>
       </table>
     </div>
-  </div>
-</center>
-                        <!-- </div> -->
-                    </div>
-                    <!-- /.col -->
-                </div>
+  </div>                </div>
                 <!-- /.row -->
             </div>
             <!-- /.col -->

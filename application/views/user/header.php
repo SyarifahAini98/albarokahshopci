@@ -85,9 +85,9 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="navbar-form navbar-right" role="search">
+                <form class="navbar-form navbar-right" role="search" method="post" action="<?= base_url('beranda_pelanggan/pencarian');?>">
                     <div class="form-group">
-                        <input type="text" placeholder="Cari Produk..." class="form-control">
+                        <input type="text" placeholder="Cari Produk..." class="form-control" name="pencarian" value="">
                     </div>
                     &nbsp; 
                     <button type="submit" class="btn btn-primary">Cari</button>
