@@ -18,17 +18,17 @@
                     <tr>
                     <td width="100px"><b>Foto</b></td>
                     <td>: &nbsp</td>
-                    <td><input type="file" name="file_name" value="<?php echo $row->foto;?>" ></td>
+                    <td><input type="file" name="file_name" value="" ></td>
                     </tr>
                     <tr>
                     <td><b>Alamat</b></td>
                     <td>: &nbsp</td>
-                    <td><textarea name="alamat"><?php echo $row->alamat;?></textarea></td>
+                    <td><textarea name="alamat"></textarea></td>
                     </tr>
                     <tr>
                     <td><b>No. Rekening</b></td>
                     <td>: &nbsp</td>
-                    <td><input type="text" name="rekening" maxlength="30" value="<?php echo $row->rekening;?>"></td>
+                    <td><input type="text" name="rekening" maxlength="30" value=""></td>
                     </tr>
                 </table>
                 <input type="hidden" name="id_transaksi" value="<?php echo $row->id_transaksi;?>" /><br>
