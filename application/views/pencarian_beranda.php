@@ -1,10 +1,9 @@
             <div class="col-md-9">
                 <div>
                     <ol class="breadcrumb">
-                        <li>Beranda</li>
-                        <li><a href="<?= base_url('beranda_pelanggan/profil_pelanggan');?>">Profil</a></li>
-                        <li><a href="<?= base_url('beranda_pelanggan/keranjang');?>">Keranjang</a></li>
-                        <li><a href="<?= base_url('beranda_pelanggan/transaksi');?>">Transaksi</a></li>
+                        <li><a href="<?= base_url('beranda');?>">Beranda</a></li>
+                        <li><a href="<?= base_url('beranda/cara_pemesanan');?>">Cara Pemesanan</a></li>
+                        <li><a href="<?= base_url('beranda/tentang_kami');?>">Tentang Kami</a></li>
                     </ol>
                 </div>
                 <!-- /.div -->

@@ -60,7 +60,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?= base_url('beranda_pelanggan');?>"><strong>Al - Barokah</strong> Shop</a>
+                <a class="navbar-brand" href="<?= base_url('beranda');?>"><strong>Al - Barokah</strong> Shop</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -68,6 +68,8 @@
 
 
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="<?= base_url('auth');?>">Masuk</a></li>
+                    <li><a href="<?= base_url('auth/daftar');?>">Daftar</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -83,6 +85,7 @@
                         </ul>
                     </li>
                 </ul>
+                <form class="navbar-form navbar-right" role="sea
                 <form class="navbar-form navbar-right" role="search" method="post" action="<?= base_url('beranda/pencarian_beranda');?>">
                     <div class="form-group">
                         <input type="text" placeholder="Cari Produk..." class="form-control" name="pencarian" value="">
@@ -112,7 +115,7 @@
                             $no=1;
                             foreach ($data1 as $row):
                             ?>
-                            <li><a href="<?= base_url('beranda_pelanggan/detail_produk/'.$row->id_produk);?>">
+                            <li><a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
                                 <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="Alat_Musik"><h4><?= $row->nama_produk;?></h4>
                             </a></li>
                             <?php $no++;
@@ -123,7 +126,7 @@
                             $no=1;
                             foreach ($data2 as $row):
                             ?>
-                            <li><a href="<?= base_url('beranda_pelanggan/detail_produk/'.$row->id_produk);?>">
+                            <li><a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
                                 <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="Alat_Pancing"><h4><?= $row->nama_produk;?></h4>
                             </a></li>
                             <?php $no++;
@@ -134,7 +137,7 @@
                             $no=1;
                             foreach ($data3 as $row):
                             ?>
-                            <li><a href="<?= base_url('beranda_pelanggan/detail_produk/'.$row->id_produk);?>">
+                            <li><a href="<?= base_url('beranda/detail_produk/'.$row->id_produk);?>">
                                 <img src="<?= base_url('assets/');?>img/images_produk/<?= $row->foto;?>" alt="Alat_Olahraga"><h4><?= $row->nama_produk;?></h4>
                             </a></li>
                             <?php $no++;
