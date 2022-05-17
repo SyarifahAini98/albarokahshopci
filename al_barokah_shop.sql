@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Jun 2019 pada 17.53
--- Versi server: 10.1.30-MariaDB
--- Versi PHP: 7.2.2
+-- Waktu pembuatan: 17 Bulan Mei 2022 pada 09.50
+-- Versi server: 10.4.10-MariaDB
+-- Versi PHP: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -101,7 +101,7 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `username`, `password`, `email`, `nama_lengkap`, `jkel`, `foto`, `no_telp`, `alamat`) VALUES
-(1, 'genius_unlimited', '202cb962ac59075b964b07152d234b70', 'syarifahaini0912@gmail.com', 'Syarifah Aini', 'P', '1547566065_1546361724_FB_IMG_15364282448578812.jpg', '089695356694', 'Perum. Kebonsari Indah DD 3 Jember'),
+(1, 'genius_unlimited', '$2y$10$iE2WzCCBEkzA9e8.0OdlGOHN.go3DreA6ImhDOfE32aUK2H26sS4y', 'syarifahaini0912@gmail.com', 'Syarifah Aini', 'P', '1547566065_1546361724_FB_IMG_15364282448578812.jpg', '089695356694', 'Perum. Kebonsari Indah DD 3 Jember'),
 (9, 'ipehipeh', '$2y$10$iE2WzCCBEkzA9e8.0OdlGOHN.go3DreA6ImhDOfE32aUK2H26sS4y', 'syarifahain12@gmail.com', 'Syarifah Aini1', 'P', 'default_foto_pelanggan.jpg', '089', 'Alamatkuuu'),
 (11, 'ipeh', '$2y$10$iE2WzCCBEkzA9e8.0OdlGOHN.go3DreA6ImhDOfE32aUK2H26sS4y', 'syarifahaini091@gmail.com', 'Syarifah Aini', 'P', 'default_foto_pelanggan.jpg', '0896', 'Perumahan Kebonsari Indah DD 3');
 
